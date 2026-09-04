@@ -1,0 +1,41 @@
+{
+  "cli_version": "0.10.2",
+  "checkpoint_id": "307caf8ffec1",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 3,
+  "files_touched": [
+    "deliverables/action-calendar.ics",
+    "deliverables/compliance-brief.md",
+    "deliverables/impact-register.csv",
+    "deliverables/snapshots/01-scope.json",
+    "deliverables/snapshots/02-source-capture.json",
+    "deliverables/snapshots/03-authority-and-timing.json",
+    "deliverables/snapshots/04-evidence-reconciliation.json",
+    "deliverables/snapshots/05-impact-analysis.json",
+    "deliverables/snapshots/06-actions-and-approvals.json",
+    "deliverables/snapshots/07-publication-validation.json",
+    "regulatory-change-impact-brief/SKILL.md",
+    "regulatory-change-impact-brief/references/decision-policy.md",
+    "regulatory-change-impact-brief/references/sources.md",
+    "regulatory-change-impact-brief/scripts/article-50-limbs.json",
+    "regulatory-change-impact-brief/scripts/run_review.py",
+    "regulatory-change-impact-brief/scripts/sources.json"
+  ],
+  "sessions": [
+    {
+      "metadata": "/30/7caf8ffec1/0/metadata.json",
+      "transcript": "/30/7caf8ffec1/0/full.jsonl",
+      "compact_transcript": "/30/7caf8ffec1/0/transcript.jsonl",
+      "content_hash": "/30/7caf8ffec1/0/content_hash.txt",
+      "prompt": "/30/7caf8ffec1/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 58,
+    "cache_creation_tokens": 79856,
+    "cache_read_tokens": 9226065,
+    "output_tokens": 73604,
+    "api_call_count": 29
+  }
+}
