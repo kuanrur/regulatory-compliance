@@ -1,0 +1,38 @@
+push 到 main，不要開分支也不要走 PR。README 明寫要在 fork 的 main 上工作。那兩個 PR merge 是 GitRollTraining 開發 starter repo 的紀錄，不是我的工作慣例
+
+---
+
+讀 README 跟 snapshot.schema.json，跟我說這個project要做什麼
+
+---
+
+訪談的問題由我自己打進那個網頁，你不要幫我問。你負責兩件事：一是在我按 End Interview 之前用 read_page 把整頁逐字抓下來存成 references/interview-transcript.md，二是幫每一輪對話編號當作之後的 evidence ID。另外 skills-ref 要用 uvx --from skills-ref agentskills validate 跑，不是直接叫 skills-ref. 然後這一輪只準備訪談。不要開始寫程式、SKILL.md 或任何 snapshot, 不改 snapshot.schema.json。不動 entire/checkpoints/v1。不做 Session Log
+
+---
+
+先準備interview questions. 這些目前是我現在想到的問題: 1. 有哪些 AI 系統，各掛誰的名字
+2. 跟歐盟的連結是什麼
+3. binding rules 和 labelled guidance 在你們的講法裡各是什麼，來源在哪
+4. 每個系統我們是 provider 還是 deployer
+5. 法規來源要去哪個網址抓，有沒有備援，抓不到時你們怎麼處理
+6. 誰核准什麼，Legal 和 Operations 各自不可被取代的決定是什麼
+
+---
+
+覆蓋度表採用，合併原則我來定。訪談輪次可能是有限的，17 題可能會問不完，壓到 11 題左右?合併原則：落在同一個 snapshot 欄位群的併成一題。但 README:59 那題不准併掉也不准往後排，那是唯一明講要我自己選政策的地方。另外你再拿 schema 的 stage 05 必填欄位對一次你的覆蓋度表檢查。合併完給我優先序，我要知道如果只剩三輪該問哪三題
+
+---
+
+計畫採用。兩個調整。第一，你自己說複合題會被回一半，但預算沒算進去。P1 六個子項、P2 五個子項，這兩題幾乎一定要追問，把它們各算兩輪重排一次總預算。第二，計畫裡沒有 say-back 的位置。我上一個專案的訪談紀錄裡有一輪是 say-back 並且對方確認無誤，那是我證明自己聽懂了的唯一證據。在 P6 之後留一輪，我會把角色判定和 binding 與 guidance 的切分用我自己的話講回去。重排後告訴我總輪次是多少
+
+---
+
+再過一遍這14題，找重複。但不要只看有沒有關聯就刪,分三類給我：哪兩題會拿到字面上相同的答案（這種合併）、哪兩題是同一件事的不同角度（這種保留，因為答案不一致時那個不一致本身是我要記的 conflict）、哪一題的答案可以從別題推出來（這種降到最後，輪次不夠時先放掉）
+
+---
+
+say-back 兩個位置都不選，往前移到 P5 之後、P6 之前。理由：要複述的材料在 P5 就齊了，P6 對這段複述沒貢獻；而且被更正的 say-back 只有在我還來得及用的時候才有價值，排在最後拿到更正只能寫進 unresolved。這樣 P6 的主問追問也不會被拆開
+
+---
+
+我突然想到interview可能不會只有一個人，所以我先開. 有需要的話，你要幫我重新看一下這一場interview的設定.以上我都是預設跟project A一樣的場景設定。在我開interview看setting的期間你可以先去看一下project A的留下的檔案有沒有值得參考的東西

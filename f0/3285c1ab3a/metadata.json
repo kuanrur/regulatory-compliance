@@ -1,0 +1,26 @@
+{
+  "cli_version": "0.10.2",
+  "checkpoint_id": "f03285c1ab3a",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 11,
+  "files_touched": [
+    "regulatory-change-impact-brief/references/interview-transcript.md"
+  ],
+  "sessions": [
+    {
+      "metadata": "/f0/3285c1ab3a/0/metadata.json",
+      "transcript": "/f0/3285c1ab3a/0/full.jsonl",
+      "compact_transcript": "/f0/3285c1ab3a/0/transcript.jsonl",
+      "content_hash": "/f0/3285c1ab3a/0/content_hash.txt",
+      "prompt": "/f0/3285c1ab3a/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 218,
+    "cache_creation_tokens": 349080,
+    "cache_read_tokens": 26265113,
+    "output_tokens": 214960,
+    "api_call_count": 109
+  }
+}
