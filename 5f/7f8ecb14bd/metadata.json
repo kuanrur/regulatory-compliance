@@ -22,14 +22,14 @@
       "transcript": "/5f/7f8ecb14bd/0/full.jsonl",
       "compact_transcript": "/5f/7f8ecb14bd/0/transcript.jsonl",
       "content_hash": "/5f/7f8ecb14bd/0/content_hash.txt",
-      "prompt": "/5f/7f8ecb14bd/0/prompt.txt"
+      "prompt": ""
     }
   ],
   "token_usage": {
-    "input_tokens": 60,
-    "cache_creation_tokens": 47029,
-    "cache_read_tokens": 11591191,
-    "output_tokens": 35720,
-    "api_call_count": 30
+    "input_tokens": 2,
+    "cache_creation_tokens": 2079,
+    "cache_read_tokens": 415040,
+    "output_tokens": 833,
+    "api_call_count": 1
   }
 }
