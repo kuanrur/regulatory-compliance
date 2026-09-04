@@ -1,0 +1,45 @@
+{
+  "schema_version": "regulatory-compliance-stage-snapshot/2",
+  "snapshot_id": "RUN-20260904T120000Z-01-scope",
+  "run_id": "RUN-20260904T120000Z",
+  "stage": "scope",
+  "sequence": 1,
+  "created_at": "2026-09-04T23:26:37Z",
+  "status": "complete",
+  "predecessor": null,
+  "consumed_record_ids": [],
+  "produced_record_ids": [
+    "SCOPE-FRAME"
+  ],
+  "state": {
+    "as_of": "2026-09-04T12:00:00Z",
+    "review_type": "change-triggered review of EU AI Act Article 50 transparency obligations",
+    "systems_in_scope": [
+      "every AI system recorded in the AI-system register as at as_of"
+    ],
+    "audiences": [
+      "learners",
+      "applicants",
+      "staff",
+      "the public"
+    ],
+    "approval_gates": [
+      "Compliance and Operations Manager reconciliation",
+      "Legal interpretation",
+      "Operations activation"
+    ]
+  },
+  "unresolved": [],
+  "decisions": [
+    {
+      "id": "DEC-scope-rule",
+      "summary": "Stage 01 declares the scope as a rule and does not enumerate the systems.",
+      "evidence_ids": [],
+      "rationale": "The systems live in the AI-system register, which is fetched in stage 02. Enumerating them here would mean carrying a copied list that says nothing about the register as it is today.",
+      "tradeoffs": [
+        "A reviewer does not see the eight system ids until stage 04.",
+        "The scope rule is stable while the register changes."
+      ]
+    }
+  ]
+}

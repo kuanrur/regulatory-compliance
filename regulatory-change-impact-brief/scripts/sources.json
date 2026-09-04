@@ -1,0 +1,141 @@
+{
+  "schema_note": "Read by run_review.py. Explained in references/sources.md, which is the version to hand to a reviewer.",
+  "sources": [
+    {
+      "key": "ART50",
+      "summary": "EU AI Act Article 50 binding text, European Commission AI Act Service Desk",
+      "locator": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-50",
+      "transport": "remote",
+      "content_kind": "html",
+      "source_role": "binding-regulation",
+      "authority": "binding",
+      "owner": "European Commission",
+      "disclosed_at": ["E8", "E9"],
+      "withholds_on_failure": "all formal impact conclusions",
+      "failure_status": "invalid",
+      "success_test": {
+        "min_extracted_chars": 10000,
+        "must_parse": "article50_paragraphs"
+      }
+    },
+    {
+      "key": "TIMELINE",
+      "summary": "Official EU AI Act implementation timeline, European Commission AI Act Service Desk",
+      "locator": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/eu-ai-act-implementation-timeline",
+      "transport": "remote",
+      "content_kind": "html",
+      "source_role": "binding-regulation",
+      "authority": "binding",
+      "owner": "European Commission",
+      "disclosed_at": ["E8", "E9"],
+      "withholds_on_failure": "stage 03 timing_rules",
+      "failure_status": "invalid",
+      "success_test": {
+        "must_parse": "timeline_headings"
+      }
+    },
+    {
+      "key": "FAQ",
+      "summary": "Commission FAQ on transparency obligations under Article 50",
+      "locator": "https://digital-strategy.ec.europa.eu/en/faqs/transparency-obligations-under-article-50-ai-act",
+      "transport": "remote",
+      "content_kind": "html",
+      "source_role": "official-guidance",
+      "authority": "advisory",
+      "owner": "European Commission",
+      "disclosed_at": ["E8", "E9"],
+      "withholds_on_failure": "stage 03 guidance_context",
+      "failure_status": "invalid",
+      "success_test": {
+        "min_extracted_chars": 10000,
+        "must_contain": ["Article 50"]
+      }
+    },
+    {
+      "key": "REGISTER",
+      "summary": "Quillhaven Academy AI-system register",
+      "locator": "https://docs.google.com/spreadsheets/d/10ky745H_1h9XbGCXPJsiRp5yfdeU08TZtmrsCMinGgU/export?format=csv",
+      "transport": "remote",
+      "content_kind": "csv",
+      "source_role": "operational-record",
+      "authority": "operational-evidence",
+      "owner": "The system owners maintain their own entries",
+      "disclosed_at": ["E2", "E13"],
+      "withholds_on_failure": "every system fact, and with it every impact conclusion",
+      "failure_status": "invalid",
+      "success_test": {
+        "content_type_contains": "text/csv",
+        "required_columns": [
+          "system_id", "provider_role", "deployer_role", "output_type",
+          "exposed_group", "current_notice", "evidence_status", "evidence_updated_at"
+        ]
+      }
+    },
+    {
+      "key": "INCIDENT",
+      "summary": "Quillhaven Academy incident and evidence register",
+      "locator": "https://docs.google.com/spreadsheets/d/19BYZ68OSbsa1i9OfF6MzthrdC6q6mt6IWk6ucI8u7Rk/export?format=csv",
+      "transport": "remote",
+      "content_kind": "csv",
+      "source_role": "operational-record",
+      "authority": "operational-evidence",
+      "owner": "Operations and the Compliance and Operations Manager",
+      "disclosed_at": ["E4", "E13"],
+      "withholds_on_failure": "stage 04 incident_evidence",
+      "failure_status": "invalid",
+      "success_test": {
+        "content_type_contains": "text/csv",
+        "required_columns": ["record_id", "system_id", "owner", "status", "evidence_state"]
+      }
+    },
+    {
+      "key": "CALENDAR",
+      "summary": "Quillhaven Academy compliance calendar",
+      "locator": "https://docs.google.com/spreadsheets/d/1xtXl_P7Yb9LaECZjjgtlyI-idoAJTAhH-1gQ4vQaCGA/export?format=csv",
+      "transport": "remote",
+      "content_kind": "csv",
+      "source_role": "operational-record",
+      "authority": "operational-evidence",
+      "owner": "Operations and the Compliance and Operations Manager",
+      "disclosed_at": ["E5", "E13"],
+      "withholds_on_failure": "stage 06 reconciliation against existing actions",
+      "failure_status": "invalid",
+      "success_test": {
+        "content_type_contains": "text/csv",
+        "required_columns": ["action_id", "system_id", "due_date", "status", "approval_required"]
+      }
+    },
+    {
+      "key": "POLICY",
+      "summary": "Quillhaven Academy internal AI-use policy",
+      "locator": "https://app.notion.com/p/3ba0b700541e81f09998d48f3b1c2856",
+      "transport": "remote",
+      "content_kind": "html",
+      "source_role": "internal-policy",
+      "authority": "internal-control",
+      "owner": "Leadership",
+      "disclosed_at": ["E3", "E13", "E18"],
+      "withholds_on_failure": "stage 04 policy_controls, in full",
+      "failure_status": "unavailable",
+      "success_test": {
+        "min_extracted_chars": 500
+      }
+    },
+    {
+      "key": "TRANSCRIPT",
+      "summary": "Stakeholder testimony recorded in the interview of 2026-09-04. This is what a person said, not a record produced by a system, and it is not read at the same level as the three operational registers.",
+      "locator": "references/interview-transcript.md",
+      "transport": "local",
+      "content_kind": "markdown",
+      "source_role": "other",
+      "authority": "operational-evidence",
+      "owner": "The Compliance and Operations Manager, as interviewed",
+      "disclosed_at": [],
+      "withholds_on_failure": "resolution of every E pointer",
+      "failure_status": "invalid",
+      "success_test": {
+        "must_parse": "transcript_exchanges"
+      }
+    }
+  ]
+}

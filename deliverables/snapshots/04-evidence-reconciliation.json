@@ -1,0 +1,919 @@
+{
+  "schema_version": "regulatory-compliance-stage-snapshot/2",
+  "snapshot_id": "RUN-20260904T120000Z-04-evidence-reconciliation",
+  "run_id": "RUN-20260904T120000Z",
+  "stage": "evidence-reconciliation",
+  "sequence": 4,
+  "created_at": "2026-09-04T23:26:39Z",
+  "status": "partial",
+  "predecessor": {
+    "snapshot_id": "RUN-20260904T120000Z-03-authority-and-timing",
+    "path": "deliverables/snapshots/03-authority-and-timing.json",
+    "sha256": "sha256:3257b34a23af4e9f7bb73e5324a92994cc0d985bfd4f703c38ad19292a8548e2"
+  },
+  "consumed_record_ids": [
+    "SRC-REGISTER",
+    "SRC-INCIDENT",
+    "SRC-CALENDAR",
+    "SRC-POLICY",
+    "SRC-TRANSCRIPT"
+  ],
+  "produced_record_ids": [
+    "FACT-AI-001-output_type",
+    "FACT-AI-001-exposed_group",
+    "FACT-AI-001-provider_role",
+    "FACT-AI-001-deployer_role",
+    "FACT-AI-001-current_notice",
+    "FACT-AI-001-evidence_status",
+    "FACT-AI-001-evidence_updated_at",
+    "FACT-AI-002-output_type",
+    "FACT-AI-002-exposed_group",
+    "FACT-AI-002-provider_role",
+    "FACT-AI-002-deployer_role",
+    "FACT-AI-002-current_notice",
+    "FACT-AI-002-evidence_status",
+    "FACT-AI-002-evidence_updated_at",
+    "FACT-AI-003-output_type",
+    "FACT-AI-003-exposed_group",
+    "FACT-AI-003-provider_role",
+    "FACT-AI-003-deployer_role",
+    "FACT-AI-003-current_notice",
+    "FACT-AI-003-evidence_status",
+    "FACT-AI-003-evidence_updated_at",
+    "FACT-AI-004-output_type",
+    "FACT-AI-004-exposed_group",
+    "FACT-AI-004-provider_role",
+    "FACT-AI-004-deployer_role",
+    "FACT-AI-004-current_notice",
+    "FACT-AI-004-evidence_status",
+    "FACT-AI-004-evidence_updated_at",
+    "FACT-AI-005-output_type",
+    "FACT-AI-005-exposed_group",
+    "FACT-AI-005-provider_role",
+    "FACT-AI-005-deployer_role",
+    "FACT-AI-005-current_notice",
+    "FACT-AI-005-evidence_status",
+    "FACT-AI-005-evidence_updated_at",
+    "FACT-AI-006-output_type",
+    "FACT-AI-006-exposed_group",
+    "FACT-AI-006-provider_role",
+    "FACT-AI-006-deployer_role",
+    "FACT-AI-006-current_notice",
+    "FACT-AI-006-evidence_status",
+    "FACT-AI-006-evidence_updated_at",
+    "FACT-AI-007-output_type",
+    "FACT-AI-007-exposed_group",
+    "FACT-AI-007-provider_role",
+    "FACT-AI-007-deployer_role",
+    "FACT-AI-007-current_notice",
+    "FACT-AI-007-evidence_status",
+    "FACT-AI-007-evidence_updated_at",
+    "FACT-AI-008-output_type",
+    "FACT-AI-008-exposed_group",
+    "FACT-AI-008-provider_role",
+    "FACT-AI-008-deployer_role",
+    "FACT-AI-008-current_notice",
+    "FACT-AI-008-evidence_status",
+    "FACT-AI-008-evidence_updated_at",
+    "INC-REC-001",
+    "INC-REC-002",
+    "INC-REC-003",
+    "INC-REC-004",
+    "INC-REC-005",
+    "INC-REC-006",
+    "INC-REC-007",
+    "INC-REC-008",
+    "INC-REC-009",
+    "INC-REC-010",
+    "CFL-AI-003-evidence-quality",
+    "CFL-ALL-deployment-dates",
+    "CFL-ALL-owner-names",
+    "GAP-ALL-policy-controls",
+    "GAP-ALL-placed-on-market",
+    "GAP-ALL-notice-timing",
+    "GAP-AI-002-evidence-predates-obligation",
+    "GAP-AI-005-evidence-predates-obligation"
+  ],
+  "state": {
+    "system_facts": [
+      {
+        "id": "FACT-AI-001-output_type",
+        "summary": "AI-001 Learner Support Chat: output_type is direct_interaction.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-001",
+        "field": "output_type",
+        "value": "direct_interaction"
+      },
+      {
+        "id": "FACT-AI-001-exposed_group",
+        "summary": "AI-001 Learner Support Chat: exposed_group is learners.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-001",
+        "field": "exposed_group",
+        "value": "learners"
+      },
+      {
+        "id": "FACT-AI-001-provider_role",
+        "summary": "AI-001 Learner Support Chat: provider_role is no.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-001",
+        "field": "provider_role",
+        "value": "no"
+      },
+      {
+        "id": "FACT-AI-001-deployer_role",
+        "summary": "AI-001 Learner Support Chat: deployer_role is yes.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-001",
+        "field": "deployer_role",
+        "value": "yes"
+      },
+      {
+        "id": "FACT-AI-001-current_notice",
+        "summary": "AI-001 Learner Support Chat: current_notice is yes.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-001",
+        "field": "current_notice",
+        "value": "yes"
+      },
+      {
+        "id": "FACT-AI-001-evidence_status",
+        "summary": "AI-001 Learner Support Chat: evidence_status is complete.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-001",
+        "field": "evidence_status",
+        "value": "complete"
+      },
+      {
+        "id": "FACT-AI-001-evidence_updated_at",
+        "summary": "AI-001 Learner Support Chat: evidence_updated_at is 2026-08-20.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-001",
+        "field": "evidence_updated_at",
+        "value": "2026-08-20"
+      },
+      {
+        "id": "FACT-AI-002-output_type",
+        "summary": "AI-002 Admissions Draft Assistant: output_type is text.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-002",
+        "field": "output_type",
+        "value": "text"
+      },
+      {
+        "id": "FACT-AI-002-exposed_group",
+        "summary": "AI-002 Admissions Draft Assistant: exposed_group is applicants.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-002",
+        "field": "exposed_group",
+        "value": "applicants"
+      },
+      {
+        "id": "FACT-AI-002-provider_role",
+        "summary": "AI-002 Admissions Draft Assistant: provider_role is no.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-002",
+        "field": "provider_role",
+        "value": "no"
+      },
+      {
+        "id": "FACT-AI-002-deployer_role",
+        "summary": "AI-002 Admissions Draft Assistant: deployer_role is yes.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-002",
+        "field": "deployer_role",
+        "value": "yes"
+      },
+      {
+        "id": "FACT-AI-002-current_notice",
+        "summary": "AI-002 Admissions Draft Assistant: current_notice is unknown.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-002",
+        "field": "current_notice",
+        "value": "unknown"
+      },
+      {
+        "id": "FACT-AI-002-evidence_status",
+        "summary": "AI-002 Admissions Draft Assistant: evidence_status is partial.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-002",
+        "field": "evidence_status",
+        "value": "partial"
+      },
+      {
+        "id": "FACT-AI-002-evidence_updated_at",
+        "summary": "AI-002 Admissions Draft Assistant: evidence_updated_at is 2026-07-01.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-002",
+        "field": "evidence_updated_at",
+        "value": "2026-07-01"
+      },
+      {
+        "id": "FACT-AI-003-output_type",
+        "summary": "AI-003 Campaign Image Studio: output_type is synthetic_image.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-003",
+        "field": "output_type",
+        "value": "synthetic_image"
+      },
+      {
+        "id": "FACT-AI-003-exposed_group",
+        "summary": "AI-003 Campaign Image Studio: exposed_group is public.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-003",
+        "field": "exposed_group",
+        "value": "public"
+      },
+      {
+        "id": "FACT-AI-003-provider_role",
+        "summary": "AI-003 Campaign Image Studio: provider_role is no.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-003",
+        "field": "provider_role",
+        "value": "no"
+      },
+      {
+        "id": "FACT-AI-003-deployer_role",
+        "summary": "AI-003 Campaign Image Studio: deployer_role is yes.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-003",
+        "field": "deployer_role",
+        "value": "yes"
+      },
+      {
+        "id": "FACT-AI-003-current_notice",
+        "summary": "AI-003 Campaign Image Studio: current_notice is visible_label.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-003",
+        "field": "current_notice",
+        "value": "visible_label"
+      },
+      {
+        "id": "FACT-AI-003-evidence_status",
+        "summary": "AI-003 Campaign Image Studio: evidence_status is complete.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-003",
+        "field": "evidence_status",
+        "value": "complete"
+      },
+      {
+        "id": "FACT-AI-003-evidence_updated_at",
+        "summary": "AI-003 Campaign Image Studio: evidence_updated_at is 2026-08-22.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-003",
+        "field": "evidence_updated_at",
+        "value": "2026-08-22"
+      },
+      {
+        "id": "FACT-AI-004-output_type",
+        "summary": "AI-004 Pronunciation Coach: output_type is direct_interaction.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-004",
+        "field": "output_type",
+        "value": "direct_interaction"
+      },
+      {
+        "id": "FACT-AI-004-exposed_group",
+        "summary": "AI-004 Pronunciation Coach: exposed_group is learners.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-004",
+        "field": "exposed_group",
+        "value": "learners"
+      },
+      {
+        "id": "FACT-AI-004-provider_role",
+        "summary": "AI-004 Pronunciation Coach: provider_role is no.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-004",
+        "field": "provider_role",
+        "value": "no"
+      },
+      {
+        "id": "FACT-AI-004-deployer_role",
+        "summary": "AI-004 Pronunciation Coach: deployer_role is yes.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-004",
+        "field": "deployer_role",
+        "value": "yes"
+      },
+      {
+        "id": "FACT-AI-004-current_notice",
+        "summary": "AI-004 Pronunciation Coach: current_notice is no.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-004",
+        "field": "current_notice",
+        "value": "no"
+      },
+      {
+        "id": "FACT-AI-004-evidence_status",
+        "summary": "AI-004 Pronunciation Coach: evidence_status is complete.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-004",
+        "field": "evidence_status",
+        "value": "complete"
+      },
+      {
+        "id": "FACT-AI-004-evidence_updated_at",
+        "summary": "AI-004 Pronunciation Coach: evidence_updated_at is 2026-08-18.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-004",
+        "field": "evidence_updated_at",
+        "value": "2026-08-18"
+      },
+      {
+        "id": "FACT-AI-005-output_type",
+        "summary": "AI-005 Remote Proctor Signal: output_type is classification.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-005",
+        "field": "output_type",
+        "value": "classification"
+      },
+      {
+        "id": "FACT-AI-005-exposed_group",
+        "summary": "AI-005 Remote Proctor Signal: exposed_group is learners.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-005",
+        "field": "exposed_group",
+        "value": "learners"
+      },
+      {
+        "id": "FACT-AI-005-provider_role",
+        "summary": "AI-005 Remote Proctor Signal: provider_role is unknown.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-005",
+        "field": "provider_role",
+        "value": "unknown"
+      },
+      {
+        "id": "FACT-AI-005-deployer_role",
+        "summary": "AI-005 Remote Proctor Signal: deployer_role is yes.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-005",
+        "field": "deployer_role",
+        "value": "yes"
+      },
+      {
+        "id": "FACT-AI-005-current_notice",
+        "summary": "AI-005 Remote Proctor Signal: current_notice is yes.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-005",
+        "field": "current_notice",
+        "value": "yes"
+      },
+      {
+        "id": "FACT-AI-005-evidence_status",
+        "summary": "AI-005 Remote Proctor Signal: evidence_status is stale.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-005",
+        "field": "evidence_status",
+        "value": "stale"
+      },
+      {
+        "id": "FACT-AI-005-evidence_updated_at",
+        "summary": "AI-005 Remote Proctor Signal: evidence_updated_at is 2026-04-15.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-005",
+        "field": "evidence_updated_at",
+        "value": "2026-04-15"
+      },
+      {
+        "id": "FACT-AI-006-output_type",
+        "summary": "AI-006 Staff Summary Assistant: output_type is text.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-006",
+        "field": "output_type",
+        "value": "text"
+      },
+      {
+        "id": "FACT-AI-006-exposed_group",
+        "summary": "AI-006 Staff Summary Assistant: exposed_group is staff.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-006",
+        "field": "exposed_group",
+        "value": "staff"
+      },
+      {
+        "id": "FACT-AI-006-provider_role",
+        "summary": "AI-006 Staff Summary Assistant: provider_role is no.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-006",
+        "field": "provider_role",
+        "value": "no"
+      },
+      {
+        "id": "FACT-AI-006-deployer_role",
+        "summary": "AI-006 Staff Summary Assistant: deployer_role is yes.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-006",
+        "field": "deployer_role",
+        "value": "yes"
+      },
+      {
+        "id": "FACT-AI-006-current_notice",
+        "summary": "AI-006 Staff Summary Assistant: current_notice is not_applicable.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-006",
+        "field": "current_notice",
+        "value": "not_applicable"
+      },
+      {
+        "id": "FACT-AI-006-evidence_status",
+        "summary": "AI-006 Staff Summary Assistant: evidence_status is complete.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-006",
+        "field": "evidence_status",
+        "value": "complete"
+      },
+      {
+        "id": "FACT-AI-006-evidence_updated_at",
+        "summary": "AI-006 Staff Summary Assistant: evidence_updated_at is 2026-08-14.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-006",
+        "field": "evidence_updated_at",
+        "value": "2026-08-14"
+      },
+      {
+        "id": "FACT-AI-007-output_type",
+        "summary": "AI-007 Website Guide Avatar: output_type is direct_interaction.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-007",
+        "field": "output_type",
+        "value": "direct_interaction"
+      },
+      {
+        "id": "FACT-AI-007-exposed_group",
+        "summary": "AI-007 Website Guide Avatar: exposed_group is public.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-007",
+        "field": "exposed_group",
+        "value": "public"
+      },
+      {
+        "id": "FACT-AI-007-provider_role",
+        "summary": "AI-007 Website Guide Avatar: provider_role is no.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-007",
+        "field": "provider_role",
+        "value": "no"
+      },
+      {
+        "id": "FACT-AI-007-deployer_role",
+        "summary": "AI-007 Website Guide Avatar: deployer_role is yes.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-007",
+        "field": "deployer_role",
+        "value": "yes"
+      },
+      {
+        "id": "FACT-AI-007-current_notice",
+        "summary": "AI-007 Website Guide Avatar: current_notice is no.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-007",
+        "field": "current_notice",
+        "value": "no"
+      },
+      {
+        "id": "FACT-AI-007-evidence_status",
+        "summary": "AI-007 Website Guide Avatar: evidence_status is conflicting.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-007",
+        "field": "evidence_status",
+        "value": "conflicting"
+      },
+      {
+        "id": "FACT-AI-007-evidence_updated_at",
+        "summary": "AI-007 Website Guide Avatar: evidence_updated_at is 2026-08-21.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-007",
+        "field": "evidence_updated_at",
+        "value": "2026-08-21"
+      },
+      {
+        "id": "FACT-AI-008-output_type",
+        "summary": "AI-008 Video Localisation Tool: output_type is synthetic_audio_video.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-008",
+        "field": "output_type",
+        "value": "synthetic_audio_video"
+      },
+      {
+        "id": "FACT-AI-008-exposed_group",
+        "summary": "AI-008 Video Localisation Tool: exposed_group is public.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-008",
+        "field": "exposed_group",
+        "value": "public"
+      },
+      {
+        "id": "FACT-AI-008-provider_role",
+        "summary": "AI-008 Video Localisation Tool: provider_role is no.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-008",
+        "field": "provider_role",
+        "value": "no"
+      },
+      {
+        "id": "FACT-AI-008-deployer_role",
+        "summary": "AI-008 Video Localisation Tool: deployer_role is yes.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-008",
+        "field": "deployer_role",
+        "value": "yes"
+      },
+      {
+        "id": "FACT-AI-008-current_notice",
+        "summary": "AI-008 Video Localisation Tool: current_notice is visible_label.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-008",
+        "field": "current_notice",
+        "value": "visible_label"
+      },
+      {
+        "id": "FACT-AI-008-evidence_status",
+        "summary": "AI-008 Video Localisation Tool: evidence_status is partial.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-008",
+        "field": "evidence_status",
+        "value": "partial"
+      },
+      {
+        "id": "FACT-AI-008-evidence_updated_at",
+        "summary": "AI-008 Video Localisation Tool: evidence_updated_at is 2026-08-19.",
+        "evidence_ids": [
+          "SRC-REGISTER"
+        ],
+        "system_id": "AI-008",
+        "field": "evidence_updated_at",
+        "value": "2026-08-19"
+      }
+    ],
+    "policy_controls": [],
+    "incident_evidence": [
+      {
+        "id": "INC-REC-001",
+        "summary": "REC-001 on AI-001, evidence reported 2026-08-20, status closed, evidence state complete.",
+        "evidence_ids": [
+          "SRC-INCIDENT"
+        ],
+        "system_id": "AI-001",
+        "owner": "Learner Operations",
+        "status": "closed",
+        "evidence_state": "complete"
+      },
+      {
+        "id": "INC-REC-002",
+        "summary": "REC-002 on AI-002, evidence_gap reported 2026-08-23, status open, evidence state missing.",
+        "evidence_ids": [
+          "SRC-INCIDENT"
+        ],
+        "system_id": "AI-002",
+        "owner": "Admissions",
+        "status": "open",
+        "evidence_state": "missing"
+      },
+      {
+        "id": "INC-REC-003",
+        "summary": "REC-003 on AI-003, incident reported 2026-08-24, status open, evidence state conflicting.",
+        "evidence_ids": [
+          "SRC-INCIDENT"
+        ],
+        "system_id": "AI-003",
+        "owner": "Communications",
+        "status": "open",
+        "evidence_state": "conflicting"
+      },
+      {
+        "id": "INC-REC-004",
+        "summary": "REC-004 on AI-004, incident reported 2026-08-18, status open, evidence state complete.",
+        "evidence_ids": [
+          "SRC-INCIDENT"
+        ],
+        "system_id": "AI-004",
+        "owner": "Learning Experience",
+        "status": "open",
+        "evidence_state": "complete"
+      },
+      {
+        "id": "INC-REC-005",
+        "summary": "REC-005 on AI-005, evidence_gap reported 2026-08-25, status open, evidence state stale.",
+        "evidence_ids": [
+          "SRC-INCIDENT"
+        ],
+        "system_id": "AI-005",
+        "owner": "Assessment Operations",
+        "status": "open",
+        "evidence_state": "stale"
+      },
+      {
+        "id": "INC-REC-006",
+        "summary": "REC-006 on AI-005, evidence reported 2026-08-25, status open, evidence state complete.",
+        "evidence_ids": [
+          "SRC-INCIDENT"
+        ],
+        "system_id": "AI-005",
+        "owner": "Assessment Operations",
+        "status": "open",
+        "evidence_state": "complete"
+      },
+      {
+        "id": "INC-REC-007",
+        "summary": "REC-007 on AI-006, evidence reported 2026-08-14, status closed, evidence state complete.",
+        "evidence_ids": [
+          "SRC-INCIDENT"
+        ],
+        "system_id": "AI-006",
+        "owner": "People Operations",
+        "status": "closed",
+        "evidence_state": "complete"
+      },
+      {
+        "id": "INC-REC-008",
+        "summary": "REC-008 on AI-007, incident reported 2026-08-21, status open, evidence state conflicting.",
+        "evidence_ids": [
+          "SRC-INCIDENT"
+        ],
+        "system_id": "AI-007",
+        "owner": "Marketing",
+        "status": "open",
+        "evidence_state": "conflicting"
+      },
+      {
+        "id": "INC-REC-009",
+        "summary": "REC-009 on AI-008, evidence reported 2026-08-19, status open, evidence state partial.",
+        "evidence_ids": [
+          "SRC-INCIDENT"
+        ],
+        "system_id": "AI-008",
+        "owner": "Communications",
+        "status": "open",
+        "evidence_state": "partial"
+      },
+      {
+        "id": "INC-REC-010",
+        "summary": "REC-010 on AI-008, exception_request reported 2026-08-26, status draft, evidence state missing.",
+        "evidence_ids": [
+          "SRC-INCIDENT"
+        ],
+        "system_id": "AI-008",
+        "owner": "Communications",
+        "status": "draft",
+        "evidence_state": "missing"
+      }
+    ],
+    "conflicts": [
+      {
+        "id": "CFL-AI-003-evidence-quality",
+        "summary": "The AI-system register records evidence_status complete for AI-003, while incident REC-003 records evidence_state conflicting. The two sources disagree. Both readings are recorded and neither is marked correct.",
+        "evidence_ids": [
+          "SRC-REGISTER",
+          "SRC-INCIDENT",
+          "FACT-AI-003-evidence_status",
+          "INC-REC-003"
+        ],
+        "owner": "Communications"
+      },
+      {
+        "id": "CFL-ALL-deployment-dates",
+        "summary": "Testimony at E16 placed deployment dates in the AI-system register. The register has no such column. He retreated from the claim at E17. Recorded as testimony against record.",
+        "evidence_ids": [
+          "SRC-REGISTER",
+          "E16",
+          "E17"
+        ],
+        "owner": "The system owners"
+      },
+      {
+        "id": "CFL-ALL-owner-names",
+        "summary": "Testimony at E26 placed named individual owners in the incident register. Its owner column holds department names only. He retracted at E27. Recorded as testimony against record.",
+        "evidence_ids": [
+          "SRC-INCIDENT",
+          "E26",
+          "E27"
+        ],
+        "owner": "Operations"
+      }
+    ],
+    "evidence_gaps": [
+      {
+        "id": "GAP-ALL-policy-controls",
+        "summary": "The internal AI-use policy is unavailable, so stage 04 policy_controls is withheld in full. Its absence is not evidence of compliance.",
+        "evidence_ids": [
+          "SRC-POLICY",
+          "E3",
+          "E19"
+        ],
+        "owner": "Leadership"
+      },
+      {
+        "id": "GAP-ALL-placed-on-market",
+        "summary": "No disclosed source records placed on market or deployment dates, so the Article 50(2) transitional deadline cannot be applied to any system.",
+        "evidence_ids": [
+          "SRC-REGISTER",
+          "E17"
+        ],
+        "owner": "The system owners"
+      },
+      {
+        "id": "GAP-ALL-notice-timing",
+        "summary": "No disclosed source records when a notice is shown or whether it meets accessibility requirements, so Article 50(5) cannot be evidenced for any system.",
+        "evidence_ids": [
+          "SRC-REGISTER",
+          "SRC-ART50"
+        ],
+        "owner": "The system owners"
+      },
+      {
+        "id": "GAP-AI-002-evidence-predates-obligation",
+        "summary": "AI-002 evidence was last updated 2026-07-01, before the Article 50 obligations took effect on 2026-08-02.",
+        "evidence_ids": [
+          "SRC-REGISTER",
+          "FACT-AI-002-evidence_updated_at"
+        ],
+        "owner": "Admissions"
+      },
+      {
+        "id": "GAP-AI-005-evidence-predates-obligation",
+        "summary": "AI-005 evidence was last updated 2026-04-15, before the Article 50 obligations took effect on 2026-08-02.",
+        "evidence_ids": [
+          "SRC-REGISTER",
+          "FACT-AI-005-evidence_updated_at"
+        ],
+        "owner": "Assessment Operations"
+      }
+    ]
+  },
+  "unresolved": [
+    {
+      "id": "GAP-ALL-policy-controls",
+      "summary": "The internal AI-use policy is unavailable, so stage 04 policy_controls is withheld in full. Its absence is not evidence of compliance.",
+      "evidence_ids": [
+        "SRC-POLICY",
+        "E3",
+        "E19"
+      ],
+      "owner": "Leadership"
+    },
+    {
+      "id": "GAP-ALL-placed-on-market",
+      "summary": "No disclosed source records placed on market or deployment dates, so the Article 50(2) transitional deadline cannot be applied to any system.",
+      "evidence_ids": [
+        "SRC-REGISTER",
+        "E17"
+      ],
+      "owner": "The system owners"
+    },
+    {
+      "id": "GAP-ALL-notice-timing",
+      "summary": "No disclosed source records when a notice is shown or whether it meets accessibility requirements, so Article 50(5) cannot be evidenced for any system.",
+      "evidence_ids": [
+        "SRC-REGISTER",
+        "SRC-ART50"
+      ],
+      "owner": "The system owners"
+    },
+    {
+      "id": "GAP-AI-002-evidence-predates-obligation",
+      "summary": "AI-002 evidence was last updated 2026-07-01, before the Article 50 obligations took effect on 2026-08-02.",
+      "evidence_ids": [
+        "SRC-REGISTER",
+        "FACT-AI-002-evidence_updated_at"
+      ],
+      "owner": "Admissions"
+    },
+    {
+      "id": "GAP-AI-005-evidence-predates-obligation",
+      "summary": "AI-005 evidence was last updated 2026-04-15, before the Article 50 obligations took effect on 2026-08-02.",
+      "evidence_ids": [
+        "SRC-REGISTER",
+        "FACT-AI-005-evidence_updated_at"
+      ],
+      "owner": "Assessment Operations"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "DEC-conflict-policy",
+      "summary": "Source conflicts are recorded and never adjudicated. The register's evidence_status sets a conflicting impact state; an incident record's evidence_state does not.",
+      "evidence_ids": [
+        "SRC-REGISTER",
+        "SRC-INCIDENT",
+        "E24"
+      ],
+      "rationale": "Where two sources agree that evidence is in conflict, saying so adjudicates nothing. Where they disagree with each other, letting one override the other would be choosing a winner, so the disagreement itself is the record.",
+      "tradeoffs": [
+        "A conflicting incident on a system whose register entry reads complete does not change that system's impact state.",
+        "The disagreement is visible in stage 04 instead."
+      ]
+    }
+  ]
+}

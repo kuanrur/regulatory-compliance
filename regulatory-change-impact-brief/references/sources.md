@@ -84,6 +84,10 @@ The internal AI-use policy answers HTTP 200 and returns a page that carries no d
 2026-09-04 it produced 6 characters of extracted text against a 500 character threshold, so a status
 code alone would have recorded it as retrieved. This is why the tests exist.
 
+It is also the one source whose raw bytes are not stable. Two runs seconds apart returned 20047 and
+20046 bytes with different `content_hash` values and an identical normalised text hash. That is the
+case the second hash exists for: the page did not change, its shell did.
+
 He confirmed the access position at E18 and gave the practice for it at E19: approach the document
 owner, here leadership, and where they cannot supply the material "the affected review items have to
 stay marked as pending or blocked until we get proper access".

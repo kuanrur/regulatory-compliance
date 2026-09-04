@@ -150,14 +150,27 @@ needs reconciling. That is what the brief says.
 ## Decisions recorded in the snapshots
 
 These are ours and are written into the `decisions` array with rationale and tradeoffs, never
-presented as the stakeholder's:
+presented as the stakeholder's. Every stage carries at least one.
 
-- `version_metadata` for the two Commission pages is `retrieved_at` plus `content_hash`, because
-  neither page carries a version identifier.
-- Stage 07 `validation_checks` rest on the repository README and on our judgement.
-- The conflict recording policy in rule 4, including which source sets a `conflicting` state.
-- The scope rule in stage 01, and the choice to enumerate systems in stage 04 where there is
-  evidence for them.
+| Stage | Decision | What it settles |
+|---|---|---|
+| 01 | `DEC-scope-rule` | Stage 01 declares the scope as a rule rather than enumerating systems it has no evidence for yet |
+| 02 | `DEC-version-metadata` | `version_metadata` for the two Commission pages is `retrieved_at` plus `content_hash`, because neither page carries a version identifier |
+| 02 | `DEC-rewind` | Written only when a rewind happened, naming what triggered it |
+| 03 | `DEC-record-inapplicable-timing` | The Article 50(2) transitional deadline is recorded even though it reaches no system today |
+| 04 | `DEC-conflict-policy` | Which source can set a `conflicting` state, and that a disagreement between sources is itself the record |
+| 05 | `DEC-provider-role-withheld` | Provider limb conclusions are withheld for all eight systems |
+| 05 | `DEC-state-precedence` | A recorded conflict is assigned before the provider limb withholding |
+| 06 | `DEC-action-no-suppression` | An existing calendar action is cross referenced and never suppresses a proposed action |
+| 07 | `DEC-validation-basis` | The validation checks rest on the repository README and on our judgement |
+
+`DEC-record-inapplicable-timing` is the one worth spelling out, because recording a rule that
+currently applies to nothing is a choice rather than a transcription. The 02 Dec 2026 transitional
+deadline binds providers and covers systems placed on the market before 2026-08-02. The provider
+role is undetermined and no source records placed on market dates, so it reaches no system on this
+run. It is recorded anyway, with `applicable_now` false and both reasons named, because the moment
+Legal settles the role it becomes relevant and a reviewer needs to see that the run knew it existed.
+The cost is that `timing_rules` carries an entry that does nothing until then.
 
 He characterised the source authorities himself at E9: the Article 50 text is "our hard legal
 authority", and of the FAQ, "it does not carry the force of law itself". Those are his words and are

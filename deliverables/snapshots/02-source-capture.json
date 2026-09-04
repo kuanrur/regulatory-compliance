@@ -1,0 +1,277 @@
+{
+  "schema_version": "regulatory-compliance-stage-snapshot/2",
+  "snapshot_id": "RUN-20260904T120000Z-02-source-capture",
+  "run_id": "RUN-20260904T120000Z",
+  "stage": "source-capture",
+  "sequence": 2,
+  "created_at": "2026-09-04T23:26:39Z",
+  "status": "partial",
+  "predecessor": {
+    "snapshot_id": "RUN-20260904T120000Z-01-scope",
+    "path": "deliverables/snapshots/01-scope.json",
+    "sha256": "sha256:4a5ad16d9d2b1a2fc4a6ad2ffc54dcdf2c4f4c325be8e45c433fe3d5a87c90d3"
+  },
+  "consumed_record_ids": [
+    "SCOPE-FRAME"
+  ],
+  "produced_record_ids": [
+    "SRC-ART50",
+    "SRC-TIMELINE",
+    "SRC-FAQ",
+    "SRC-REGISTER",
+    "SRC-INCIDENT",
+    "SRC-CALENDAR",
+    "SRC-POLICY",
+    "SRC-TRANSCRIPT"
+  ],
+  "state": {
+    "sources": [
+      {
+        "id": "SRC-ART50",
+        "summary": "EU AI Act Article 50 binding text, European Commission AI Act Service Desk",
+        "evidence_ids": [
+          "E8",
+          "E9"
+        ],
+        "source_role": "binding-regulation",
+        "authority": "binding",
+        "locator": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-50",
+        "retrieved_at": "2026-09-04T23:26:37Z",
+        "retrieval_status": "retrieved",
+        "content_type": "text/html; charset=utf-8",
+        "version_metadata": {
+          "identifier_on_page": null,
+          "recorded_as": "retrieved_at plus content_hash",
+          "note": "This page carries no version identifier, so identity is recorded as the retrieval time and the content hash. Our decision, not the stakeholder's."
+        },
+        "content_hash": "sha256:23ac19dd33adf500313b96584190f5c463bd775f154826ce467d4c260427b0b1",
+        "local_reference": null,
+        "owner": "European Commission",
+        "transport": "remote",
+        "http_status": 200,
+        "raw_bytes": 88297,
+        "extracted_chars": 15542,
+        "fetch_attempts": 1,
+        "fetch_error": null,
+        "success_test_applied": "min_extracted_chars+article50_paragraphs",
+        "normalised_text_sha256": "sha256:60dd5676dc27ebec96f58f70db6057bf8bd1644675cc3612a4d0a8ec0fbceb97",
+        "withholds_on_failure": "all formal impact conclusions"
+      },
+      {
+        "id": "SRC-TIMELINE",
+        "summary": "Official EU AI Act implementation timeline, European Commission AI Act Service Desk",
+        "evidence_ids": [
+          "E8",
+          "E9"
+        ],
+        "source_role": "binding-regulation",
+        "authority": "binding",
+        "locator": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/eu-ai-act-implementation-timeline",
+        "retrieved_at": "2026-09-04T23:26:37Z",
+        "retrieval_status": "retrieved",
+        "content_type": "text/html; charset=utf-8",
+        "version_metadata": {
+          "identifier_on_page": null,
+          "recorded_as": "retrieved_at plus content_hash",
+          "note": "This page carries no version identifier, so identity is recorded as the retrieval time and the content hash. Our decision, not the stakeholder's."
+        },
+        "content_hash": "sha256:38b680251d0b964c4c0e6b03c82251880dab79efe09cededf33978a75933ea83",
+        "local_reference": null,
+        "owner": "European Commission",
+        "transport": "remote",
+        "http_status": 200,
+        "raw_bytes": 36172,
+        "extracted_chars": 2758,
+        "fetch_attempts": 1,
+        "fetch_error": null,
+        "success_test_applied": "timeline_headings",
+        "normalised_text_sha256": "sha256:e4e4ca4fe2ca78096797b302fbbf7e0414304eecebdaf2b3a2eeaedb8ce9beb3",
+        "withholds_on_failure": "stage 03 timing_rules"
+      },
+      {
+        "id": "SRC-FAQ",
+        "summary": "Commission FAQ on transparency obligations under Article 50",
+        "evidence_ids": [
+          "E8",
+          "E9"
+        ],
+        "source_role": "official-guidance",
+        "authority": "advisory",
+        "locator": "https://digital-strategy.ec.europa.eu/en/faqs/transparency-obligations-under-article-50-ai-act",
+        "retrieved_at": "2026-09-04T23:26:37Z",
+        "retrieval_status": "retrieved",
+        "content_type": "text/html; charset=UTF-8",
+        "version_metadata": null,
+        "content_hash": "sha256:f6e4677c504a10527509c39aa56fac7580fb68e49ae6fb09644b907c9042b529",
+        "local_reference": null,
+        "owner": "European Commission",
+        "transport": "remote",
+        "http_status": 200,
+        "raw_bytes": 76267,
+        "extracted_chars": 18179,
+        "fetch_attempts": 1,
+        "fetch_error": null,
+        "success_test_applied": "min_extracted_chars+must_contain",
+        "normalised_text_sha256": "sha256:39baff5f6d66fb3399280482a788de08e49b52261b691b64f07cb896c271f7fd",
+        "withholds_on_failure": "stage 03 guidance_context"
+      },
+      {
+        "id": "SRC-REGISTER",
+        "summary": "Quillhaven Academy AI-system register",
+        "evidence_ids": [
+          "E2",
+          "E13"
+        ],
+        "source_role": "operational-record",
+        "authority": "operational-evidence",
+        "locator": "https://docs.google.com/spreadsheets/d/10ky745H_1h9XbGCXPJsiRp5yfdeU08TZtmrsCMinGgU/export?format=csv",
+        "retrieved_at": "2026-09-04T23:26:38Z",
+        "retrieval_status": "retrieved",
+        "content_type": "text/csv; charset=utf-8",
+        "version_metadata": null,
+        "content_hash": "sha256:5ccd555dac9dc3af5a77d3206105fb093565865f7283abe43f5339dd46ed8a80",
+        "local_reference": null,
+        "owner": "The system owners maintain their own entries",
+        "transport": "remote",
+        "http_status": 200,
+        "raw_bytes": 1608,
+        "extracted_chars": 1600,
+        "fetch_attempts": 1,
+        "fetch_error": null,
+        "success_test_applied": "content_type_contains+required_columns",
+        "normalised_text_sha256": "sha256:00f62df71e7c8821e1cd2fa236c015c4cefdf45f9b42b6f176e2835f7adf10ee",
+        "withholds_on_failure": "every system fact, and with it every impact conclusion"
+      },
+      {
+        "id": "SRC-INCIDENT",
+        "summary": "Quillhaven Academy incident and evidence register",
+        "evidence_ids": [
+          "E4",
+          "E13"
+        ],
+        "source_role": "operational-record",
+        "authority": "operational-evidence",
+        "locator": "https://docs.google.com/spreadsheets/d/19BYZ68OSbsa1i9OfF6MzthrdC6q6mt6IWk6ucI8u7Rk/export?format=csv",
+        "retrieved_at": "2026-09-04T23:26:38Z",
+        "retrieval_status": "retrieved",
+        "content_type": "text/csv",
+        "version_metadata": null,
+        "content_hash": "sha256:3dacdd595cbbdb17749bc879b01f197d2c5691ab5e2385aacef797ebdea7295b",
+        "local_reference": null,
+        "owner": "Operations and the Compliance and Operations Manager",
+        "transport": "remote",
+        "http_status": 200,
+        "raw_bytes": 1520,
+        "extracted_chars": 1510,
+        "fetch_attempts": 1,
+        "fetch_error": null,
+        "success_test_applied": "content_type_contains+required_columns",
+        "normalised_text_sha256": "sha256:c6edc54d0d2d1f8d16603d26ab132a316f65035dfd72a7ac9ecc1e00dfe54e3b",
+        "withholds_on_failure": "stage 04 incident_evidence"
+      },
+      {
+        "id": "SRC-CALENDAR",
+        "summary": "Quillhaven Academy compliance calendar",
+        "evidence_ids": [
+          "E5",
+          "E13"
+        ],
+        "source_role": "operational-record",
+        "authority": "operational-evidence",
+        "locator": "https://docs.google.com/spreadsheets/d/1xtXl_P7Yb9LaECZjjgtlyI-idoAJTAhH-1gQ4vQaCGA/export?format=csv",
+        "retrieved_at": "2026-09-04T23:26:39Z",
+        "retrieval_status": "retrieved",
+        "content_type": "text/csv; charset=utf-8",
+        "version_metadata": null,
+        "content_hash": "sha256:cb3e2ba90e96733e5713102f0653dd02d0282be92058e60febe5af899926d8ab",
+        "local_reference": null,
+        "owner": "Operations and the Compliance and Operations Manager",
+        "transport": "remote",
+        "http_status": 200,
+        "raw_bytes": 989,
+        "extracted_chars": 981,
+        "fetch_attempts": 1,
+        "fetch_error": null,
+        "success_test_applied": "content_type_contains+required_columns",
+        "normalised_text_sha256": "sha256:5095eb20cbb66632d71eeaeb8821605b370b0c6b4170f896a2edc15182a1b201",
+        "withholds_on_failure": "stage 06 reconciliation against existing actions"
+      },
+      {
+        "id": "SRC-POLICY",
+        "summary": "Quillhaven Academy internal AI-use policy",
+        "evidence_ids": [
+          "E3",
+          "E13",
+          "E18"
+        ],
+        "source_role": "internal-policy",
+        "authority": "internal-control",
+        "locator": "https://app.notion.com/p/3ba0b700541e81f09998d48f3b1c2856",
+        "retrieved_at": "2026-09-04T23:26:39Z",
+        "retrieval_status": "unavailable",
+        "content_type": "text/html; charset=utf-8",
+        "version_metadata": null,
+        "content_hash": "sha256:0074c946155c2f5bf813501b76352d7c7dc9587dac34a95463457f13afdee942",
+        "local_reference": null,
+        "owner": "Leadership",
+        "transport": "remote",
+        "http_status": 200,
+        "raw_bytes": 20047,
+        "extracted_chars": 6,
+        "fetch_attempts": 1,
+        "fetch_error": null,
+        "success_test_applied": "min_extracted_chars",
+        "normalised_text_sha256": "sha256:73bcfe98830b53a1cabd2fa68c6ba8819adcfb9b0566f7ed5d455582d47973ed",
+        "withholds_on_failure": "stage 04 policy_controls, in full"
+      },
+      {
+        "id": "SRC-TRANSCRIPT",
+        "summary": "Stakeholder testimony recorded in the interview of 2026-09-04. This is what a person said, not a record produced by a system, and it is not read at the same level as the three operational registers.",
+        "evidence_ids": [],
+        "source_role": "other",
+        "authority": "operational-evidence",
+        "locator": "references/interview-transcript.md",
+        "retrieved_at": "2026-09-04T12:00:00Z",
+        "retrieval_status": "retrieved",
+        "content_type": "text/markdown",
+        "version_metadata": null,
+        "content_hash": "sha256:67e7fa40677385586c7198f1467877feb43dfc7ad3865a94cdca7646ac3cf863",
+        "local_reference": "references/interview-transcript.md",
+        "owner": "The Compliance and Operations Manager, as interviewed",
+        "transport": "local",
+        "http_status": null,
+        "raw_bytes": 22234,
+        "extracted_chars": 22141,
+        "fetch_attempts": 1,
+        "fetch_error": null,
+        "success_test_applied": "transcript_exchanges",
+        "normalised_text_sha256": "sha256:d99986e43c3bce3526209e88fb66ab09d6f3197226a664f84f2a7afe3206ab53",
+        "withholds_on_failure": "resolution of every E pointer"
+      }
+    ]
+  },
+  "unresolved": [
+    {
+      "id": "UNRES-SRC-POLICY",
+      "summary": "Quillhaven Academy internal AI-use policy is unavailable. This withholds stage 04 policy_controls, in full.",
+      "evidence_ids": [
+        "SRC-POLICY"
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "id": "DEC-version-metadata",
+      "summary": "version_metadata for the two Commission pages is retrieved_at plus content_hash.",
+      "evidence_ids": [
+        "SRC-ART50",
+        "SRC-TIMELINE"
+      ],
+      "rationale": "Neither page carries a version identifier, so identity has to be recorded some other way. This is our decision; the scenario states the stakeholder does not design the automation.",
+      "tradeoffs": [
+        "Identity is only as good as the retrieval time and the hash.",
+        "A cosmetic markup change moves content_hash, which is why a normalised text hash is recorded beside it."
+      ]
+    }
+  ]
+}

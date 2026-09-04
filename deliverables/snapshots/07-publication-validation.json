@@ -1,0 +1,187 @@
+{
+  "schema_version": "regulatory-compliance-stage-snapshot/2",
+  "snapshot_id": "RUN-20260904T120000Z-07-publication-validation",
+  "run_id": "RUN-20260904T120000Z",
+  "stage": "publication-validation",
+  "sequence": 7,
+  "created_at": "2026-09-04T23:26:39Z",
+  "status": "complete",
+  "predecessor": {
+    "snapshot_id": "RUN-20260904T120000Z-06-actions-and-approvals",
+    "path": "deliverables/snapshots/06-actions-and-approvals.json",
+    "sha256": "sha256:0c04534bb28302bbf375d50e45baa1d8e6993eb32961ce6091d8233b207d7f4e"
+  },
+  "consumed_record_ids": [
+    "IMP-AI-001-50-1",
+    "IMP-AI-002-50-2",
+    "IMP-AI-003-50-2",
+    "IMP-AI-003-50-4a",
+    "IMP-AI-004-50-1",
+    "IMP-AI-005-50-3",
+    "IMP-AI-006-50-2",
+    "IMP-AI-007-50-1",
+    "IMP-AI-008-50-2",
+    "IMP-AI-008-50-4a",
+    "PA-ROLE-ALL",
+    "PA-AI-003-applicability-50-4a",
+    "PA-AI-005-applicability-50-3",
+    "PA-AI-007-reconcile-50-1",
+    "PA-AI-008-applicability-50-4a",
+    "PA-ALL-policy-access",
+    "PA-ALL-placed-on-market"
+  ],
+  "produced_record_ids": [
+    "ART-REGISTER",
+    "ART-BRIEF",
+    "ART-CALENDAR",
+    "CHK-01",
+    "CHK-02",
+    "CHK-03",
+    "CHK-04",
+    "CHK-05",
+    "CHK-06",
+    "CHK-07",
+    "CHK-08",
+    "CHK-09",
+    "CHK-10",
+    "CHK-11",
+    "CHK-12",
+    "CHK-13",
+    "CHK-14"
+  ],
+  "state": {
+    "artifacts": [
+      {
+        "id": "ART-REGISTER",
+        "path": "deliverables/impact-register.csv",
+        "sha256": "sha256:508ce972f571762927e32b7615c2f60187ce3d81ec88ecdc731547bd1718768f",
+        "validation_status": "valid"
+      },
+      {
+        "id": "ART-BRIEF",
+        "path": "deliverables/compliance-brief.md",
+        "sha256": "sha256:0c4fe0cbb0bbfd5c0ff7c6a2d2682618328cfebd672a596a28a0657f417b96f5",
+        "validation_status": "valid"
+      },
+      {
+        "id": "ART-CALENDAR",
+        "path": "deliverables/action-calendar.ics",
+        "sha256": "sha256:9129e4c4a554b6ac34bfdb823dca179ca2f3be92d52b199bbf40d4e30b33e764",
+        "validation_status": "valid"
+      }
+    ],
+    "validation_checks": [
+      {
+        "id": "CHK-01",
+        "summary": "Snapshots 01 to 06 validate against snapshot.schema.json during the run. Snapshot 07 is validated immediately after it is written and a failure there exits 1.",
+        "evidence_ids": [],
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "id": "CHK-02",
+        "summary": "Every predecessor sha256 from stage 02 onward matches the file on disk.",
+        "evidence_ids": [],
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "id": "CHK-03",
+        "summary": "All snapshots carry the same run_id.",
+        "evidence_ids": [],
+        "passed": true,
+        "detail": "RUN-20260904T120000Z"
+      },
+      {
+        "id": "CHK-04",
+        "summary": "Sequences 1 to 6 each appear exactly once during the run, and 7 is written last.",
+        "evidence_ids": [],
+        "passed": true,
+        "detail": "[1, 2, 3, 4, 5, 6]"
+      },
+      {
+        "id": "CHK-05",
+        "summary": "impacts plus unaffected_items total 40, and each system and limb pair appears exactly once.",
+        "evidence_ids": [],
+        "passed": true,
+        "detail": "40 pairs, 40 distinct"
+      },
+      {
+        "id": "CHK-06",
+        "summary": "Every evidence_ids value resolves to a record produced upstream or to a real exchange id.",
+        "evidence_ids": [],
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "id": "CHK-07",
+        "summary": "No entry in impacts or unaffected_items cites an exchange as the basis for a limb determination.",
+        "evidence_ids": [],
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "id": "CHK-08",
+        "summary": "No impact record rests on the Commission FAQ as its only evidence.",
+        "evidence_ids": [],
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "id": "CHK-09",
+        "summary": "Every provider limb record carries the provider role authority blocker.",
+        "evidence_ids": [],
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "id": "CHK-10",
+        "summary": "Every unresolved or conflicting item carries an owner and the evidence that would close it.",
+        "evidence_ids": [],
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "id": "CHK-11",
+        "summary": "The register row count equals impacts plus unresolved_items, and every row record_id exists in stage 05 or 06.",
+        "evidence_ids": [],
+        "passed": true,
+        "detail": "13 rows, expected 13; unknown []"
+      },
+      {
+        "id": "CHK-12",
+        "summary": "Every artifact sha256 recorded in stage 07 matches the file on disk.",
+        "evidence_ids": [],
+        "passed": true,
+        "detail": ""
+      },
+      {
+        "id": "CHK-13",
+        "summary": "Every proposed action in stage 06 appears as exactly one VEVENT.",
+        "evidence_ids": [],
+        "passed": true,
+        "detail": "7 events, 7 actions"
+      },
+      {
+        "id": "CHK-14",
+        "summary": "Every run timestamp displayed in the three artifacts equals as_of. Dates that come from the sources are data and are not run timestamps.",
+        "evidence_ids": [],
+        "passed": true,
+        "detail": "['2026-09-04T12:00:00Z'] ['20260904T120000Z']"
+      }
+    ],
+    "publication_status": "validated"
+  },
+  "unresolved": [],
+  "decisions": [
+    {
+      "id": "DEC-validation-basis",
+      "summary": "The validation checks rest on the repository README and on our own judgement, not on stakeholder testimony.",
+      "evidence_ids": [],
+      "rationale": "Nobody at the client specified how the audit trail should be checked, so presenting these as theirs would misattribute them.",
+      "tradeoffs": [
+        "The checks are ours to defend."
+      ]
+    }
+  ]
+}

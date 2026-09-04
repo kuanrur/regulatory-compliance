@@ -201,13 +201,15 @@ Before pushing, run the command from a clean checkout and confirm all four.
 Two runs with the same `--as-of` against unchanged sources produce byte identical
 `impact-register.csv`, `compliance-brief.md` and `action-calendar.ics`, because every timestamp the
 artifacts display comes from `--as-of` and the retrieval clock stays in stage 02. Snapshots differ
-only in `created_at`, `retrieved_at`, and the predecessor hashes that cover those fields. Record
-ids, states, decisions and evidence pointers are identical.
+only in `created_at`, `retrieved_at`, the predecessor hashes that cover those fields, and the
+`content_hash` of any source that serves varying markup on each request. Record ids, states,
+decisions and evidence pointers are identical.
 
 Each source record carries two hashes: `content_hash` over the raw response bytes, which is the
 source's identity, and a normalised text hash beside it. A difference beyond the timestamp fields
 means a source changed, and comparing the two hashes says whether the change was substantive or
-only markup.
+only markup. The internal AI-use policy is the live example: its raw bytes differ between two runs
+seconds apart while its normalised text hash does not.
 
 ## Gotchas
 

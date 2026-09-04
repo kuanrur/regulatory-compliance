@@ -1,0 +1,124 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//regulatory-change-impact-brief//RUN-20260904T120000Z//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:PA-ROLE-ALL@RUN-20260904T120000Z
+DTSTAMP:20260904T120000Z
+DTSTART;VALUE=DATE:20260904
+SUMMARY:[DRAFT\, pending legal] Obtain a formal provider or deployer role d
+ etermination for all eight systems from Legal and the system owners.
+DESCRIPTION:Draft proposal from run RUN-20260904T120000Z. Related records: 
+ UNR-provider-role\, IMP-AI-001-50-1\, IMP-AI-002-50-2\, IMP-AI-003-50-2\, 
+ IMP-AI-004-50-1\, IMP-AI-006-50-2\, IMP-AI-007-50-1\, IMP-AI-008-50-2. Own
+ er: Legal and the system owners. Approval gate: legal\, approval state pen
+ ding. Existing compliance calendar action: none. No date has been agreed\;
+  this event carries the review as-of date so the proposal is visible. This
+  is an unapproved draft and is not an entry in the production calendar.
+STATUS:TENTATIVE
+CATEGORIES:Article 50 draft action
+CONTACT:Legal and the system owners
+END:VEVENT
+BEGIN:VEVENT
+UID:PA-AI-003-applicability-50-4a@RUN-20260904T120000Z
+DTSTAMP:20260904T120000Z
+DTSTART;VALUE=DATE:20260904
+SUMMARY:[DRAFT\, pending legal] Obtain the evidence that settles whether Ar
+ ticle 50-4a applies to AI-003: A description of the generated content and 
+ whether it depicts real persons or events\, from the system owner.
+DESCRIPTION:Draft proposal from run RUN-20260904T120000Z. Related records: 
+ IMP-AI-003-50-4a. Owner: Communications. Approval gate: legal\, approval s
+ tate pending. Existing compliance calendar action: ACT-004. No date has be
+ en agreed\; this event carries the review as-of date so the proposal is vi
+ sible. This is an unapproved draft and is not an entry in the production c
+ alendar.
+STATUS:TENTATIVE
+CATEGORIES:Article 50 draft action
+CONTACT:Communications
+END:VEVENT
+BEGIN:VEVENT
+UID:PA-AI-005-applicability-50-3@RUN-20260904T120000Z
+DTSTAMP:20260904T120000Z
+DTSTART;VALUE=DATE:20260904
+SUMMARY:[DRAFT\, pending legal] Obtain the evidence that settles whether Ar
+ ticle 50-3 applies to AI-005: The flagging criteria for this system\, held
+  by the system owners and outside anything the Compliance and Operations M
+ anager can read.
+DESCRIPTION:Draft proposal from run RUN-20260904T120000Z. Related records: 
+ IMP-AI-005-50-3. Owner: Assessment Operations. Approval gate: legal\, appr
+ oval state pending. Existing compliance calendar action: ACT-005. No date 
+ has been agreed\; this event carries the review as-of date so the proposal
+  is visible. This is an unapproved draft and is not an entry in the produc
+ tion calendar.
+STATUS:TENTATIVE
+CATEGORIES:Article 50 draft action
+CONTACT:Assessment Operations
+END:VEVENT
+BEGIN:VEVENT
+UID:PA-AI-007-reconcile-50-1@RUN-20260904T120000Z
+DTSTAMP:20260904T120000Z
+DTSTART;VALUE=DATE:20260904
+SUMMARY:[DRAFT\, pending operations] Reconcile the conflicting disclosure e
+ vidence for AI-007 and record one agreed position.
+DESCRIPTION:Draft proposal from run RUN-20260904T120000Z. Related records: 
+ IMP-AI-007-50-1. Owner: Marketing. Approval gate: operations\, approval st
+ ate pending. Existing compliance calendar action: ACT-002. No date has bee
+ n agreed\; this event carries the review as-of date so the proposal is vis
+ ible. This is an unapproved draft and is not an entry in the production ca
+ lendar.
+STATUS:TENTATIVE
+CATEGORIES:Article 50 draft action
+CONTACT:Marketing
+END:VEVENT
+BEGIN:VEVENT
+UID:PA-AI-008-applicability-50-4a@RUN-20260904T120000Z
+DTSTAMP:20260904T120000Z
+DTSTART;VALUE=DATE:20260904
+SUMMARY:[DRAFT\, pending legal] Obtain the evidence that settles whether Ar
+ ticle 50-4a applies to AI-008: A description of the generated content and 
+ whether it depicts real persons or events\, from the system owner.
+DESCRIPTION:Draft proposal from run RUN-20260904T120000Z. Related records: 
+ IMP-AI-008-50-4a. Owner: Communications. Approval gate: legal\, approval s
+ tate pending. Existing compliance calendar action: ACT-006\, ACT-007. No d
+ ate has been agreed\; this event carries the review as-of date so the prop
+ osal is visible. This is an unapproved draft and is not an entry in the pr
+ oduction calendar.
+STATUS:TENTATIVE
+CATEGORIES:Article 50 draft action
+CONTACT:Communications
+END:VEVENT
+BEGIN:VEVENT
+UID:PA-ALL-policy-access@RUN-20260904T120000Z
+DTSTAMP:20260904T120000Z
+DTSTART;VALUE=DATE:20260904
+SUMMARY:[DRAFT\, pending operations] Request access to the internal AI-use 
+ policy from leadership\, or the relevant excerpts.
+DESCRIPTION:Draft proposal from run RUN-20260904T120000Z. Related records: 
+ UNR-policy-controls. Owner: Leadership. Approval gate: operations\, approv
+ al state pending. Existing compliance calendar action: none. No date has b
+ een agreed\; this event carries the review as-of date so the proposal is v
+ isible. This is an unapproved draft and is not an entry in the production 
+ calendar.
+STATUS:TENTATIVE
+CATEGORIES:Article 50 draft action
+CONTACT:Leadership
+END:VEVENT
+BEGIN:VEVENT
+UID:PA-ALL-placed-on-market@RUN-20260904T120000Z
+DTSTAMP:20260904T120000Z
+DTSTART;VALUE=DATE:20260904
+SUMMARY:[DRAFT\, pending operations] Record placed on market or deployment 
+ dates for each system so the Article 50(2) transitional deadline can be as
+ sessed.
+DESCRIPTION:Draft proposal from run RUN-20260904T120000Z. Related records: 
+ UNR-placed-on-market. Owner: The system owners. Approval gate: operations\
+ , approval state pending. Existing compliance calendar action: none. No da
+ te has been agreed\; this event carries the review as-of date so the propo
+ sal is visible. This is an unapproved draft and is not an entry in the pro
+ duction calendar.
+STATUS:TENTATIVE
+CATEGORIES:Article 50 draft action
+CONTACT:The system owners
+END:VEVENT
+END:VCALENDAR

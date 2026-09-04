@@ -1,0 +1,305 @@
+{
+  "schema_version": "regulatory-compliance-stage-snapshot/2",
+  "snapshot_id": "RUN-20260904T120000Z-03-authority-and-timing",
+  "run_id": "RUN-20260904T120000Z",
+  "stage": "authority-and-timing",
+  "sequence": 3,
+  "created_at": "2026-09-04T23:26:39Z",
+  "status": "complete",
+  "predecessor": {
+    "snapshot_id": "RUN-20260904T120000Z-02-source-capture",
+    "path": "deliverables/snapshots/02-source-capture.json",
+    "sha256": "sha256:4789ad073e050e4c986cbff8afcd938f6b308778516c4e5b7608c25c08fe650d"
+  },
+  "consumed_record_ids": [
+    "SRC-ART50",
+    "SRC-TIMELINE",
+    "SRC-FAQ"
+  ],
+  "produced_record_ids": [
+    "RULE-50-1",
+    "RULE-50-2",
+    "RULE-50-3",
+    "RULE-50-4a",
+    "RULE-50-4b",
+    "TIME-02Aug2026-transparency-rules-article-50-start-to-a",
+    "TIME-02Aug2026-enforcement-of-the-ai-act-starts-at-nati",
+    "TIME-02Dec2026-new-prohibitions-article-50-2-transition",
+    "TIME-02Dec2026-transitional-deadline-for-certain-provid",
+    "GUID-faq-article-50",
+    "BLK-provider-role",
+    "BLK-50-1",
+    "BLK-50-2",
+    "BLK-50-3",
+    "BLK-50-4a",
+    "BLK-50-4b"
+  ],
+  "state": {
+    "binding_rules": [
+      {
+        "id": "RULE-50-1",
+        "summary": "Article 50-1 binds providers: Providers shall ensure that AI systems intended to interact directly with natural persons are designed and developed in such a way that the natural persons concerned are informed that they are interacting with an AI system, unless this is obvious from the point of view of a natural person who is reasonably well-informed, observant and circumspect, taking into account the circumstances and the context of use.",
+        "evidence_ids": [
+          "SRC-ART50"
+        ],
+        "binding_party": "provider",
+        "source_paragraph": 1,
+        "paragraph_text_retrieved": true,
+        "trigger": "output_type is direct_interaction",
+        "on_match": "applies"
+      },
+      {
+        "id": "RULE-50-2",
+        "summary": "Article 50-2 binds providers: Providers of AI systems, including general-purpose AI systems, generating synthetic audio, image, video or text content, shall ensure that the outputs of the AI system are marked in a machine-readable format and detectable as artificially generated or manipulated.",
+        "evidence_ids": [
+          "SRC-ART50"
+        ],
+        "binding_party": "provider",
+        "source_paragraph": 2,
+        "paragraph_text_retrieved": true,
+        "trigger": "output_type is one of text, synthetic_image, synthetic_audio_video",
+        "on_match": "applies"
+      },
+      {
+        "id": "RULE-50-3",
+        "summary": "Article 50-3 binds deployers: Deployers of an emotion recognition system or a biometric categorisation system shall inform the natural persons exposed thereto of the operation of the system, and shall process the personal data in accordance with Regulations (EU) 2016/679 and (EU) 2018/1725 and Directive (EU) 2016/680, as applicable.",
+        "evidence_ids": [
+          "SRC-ART50"
+        ],
+        "binding_party": "deployer",
+        "source_paragraph": 3,
+        "paragraph_text_retrieved": true,
+        "trigger": "output_type is classification",
+        "on_match": "undetermined"
+      },
+      {
+        "id": "RULE-50-4a",
+        "summary": "Article 50-4a binds deployers: Deployers of an AI system that generates or manipulates image, audio or video content constituting a deep fake, shall disclose that the content has been artificially generated or manipulated.",
+        "evidence_ids": [
+          "SRC-ART50"
+        ],
+        "binding_party": "deployer",
+        "source_paragraph": 4,
+        "paragraph_text_retrieved": true,
+        "trigger": "output_type is one of synthetic_image, synthetic_audio_video",
+        "on_match": "undetermined"
+      },
+      {
+        "id": "RULE-50-4b",
+        "summary": "Article 50-4b binds deployers: Deployers of an AI system that generates or manipulates text which is published with the purpose of informing the public on matters of public interest shall disclose that the text has been artificially generated or manipulated.",
+        "evidence_ids": [
+          "SRC-ART50"
+        ],
+        "binding_party": "deployer",
+        "source_paragraph": 4,
+        "paragraph_text_retrieved": true,
+        "trigger": "output_type is text and exposed_group is public",
+        "on_match": "applies"
+      }
+    ],
+    "timing_rules": [
+      {
+        "id": "TIME-02Aug2026-transparency-rules-article-50-start-to-a",
+        "summary": "02 Aug 2026: Transparency rules (Article 50) start to apply.",
+        "evidence_ids": [
+          "SRC-TIMELINE"
+        ],
+        "date": "02 Aug 2026",
+        "iso_date": "2026-08-02",
+        "amended_by_digital_omnibus": false,
+        "applicable_now": true,
+        "not_applicable_reasons": [],
+        "note": null
+      },
+      {
+        "id": "TIME-02Aug2026-enforcement-of-the-ai-act-starts-at-nati",
+        "summary": "02 Aug 2026: Enforcement of the AI Act starts at national and EU-level concerning general-purpose AI models, prohibitions, transparency rules and AI literacy.",
+        "evidence_ids": [
+          "SRC-TIMELINE"
+        ],
+        "date": "02 Aug 2026",
+        "iso_date": "2026-08-02",
+        "amended_by_digital_omnibus": false,
+        "applicable_now": true,
+        "not_applicable_reasons": [],
+        "note": null
+      },
+      {
+        "id": "TIME-02Dec2026-new-prohibitions-article-50-2-transition",
+        "summary": "02 Dec 2026: New prohibitions + Article 50(2) transition apply **",
+        "evidence_ids": [
+          "SRC-TIMELINE"
+        ],
+        "date": "02 Dec 2026",
+        "iso_date": "2026-12-02",
+        "amended_by_digital_omnibus": true,
+        "applicable_now": false,
+        "not_applicable_reasons": [
+          "No disclosed source records placed on market or deployment dates, so no system can be shown to fall inside the transitional population.",
+          "The provider role is undetermined for all eight systems, and this deadline binds providers."
+        ],
+        "note": "Marked with a double asterisk on the timeline page, meaning it was amended by the Digital Omnibus on AI."
+      },
+      {
+        "id": "TIME-02Dec2026-transitional-deadline-for-certain-provid",
+        "summary": "02 Dec 2026: Transitional deadline for certain providers of AI systems, including GPAI systems, generating synthetic content, that were already placed on the market before 02 Aug 2026, to comply with Article 50(2).",
+        "evidence_ids": [
+          "SRC-TIMELINE"
+        ],
+        "date": "02 Dec 2026",
+        "iso_date": "2026-12-02",
+        "amended_by_digital_omnibus": false,
+        "applicable_now": false,
+        "not_applicable_reasons": [
+          "No disclosed source records placed on market or deployment dates, so no system can be shown to fall inside the transitional population.",
+          "The provider role is undetermined for all eight systems, and this deadline binds providers."
+        ],
+        "note": null
+      }
+    ],
+    "guidance_context": [
+      {
+        "id": "GUID-faq-article-50",
+        "summary": "Commission FAQ on transparency obligations under Article 50. Advisory only, and it does not carry the force of law itself.",
+        "evidence_ids": [
+          "SRC-FAQ",
+          "E9"
+        ],
+        "label": "advisory",
+        "may_be_sole_basis": false,
+        "retrieved": true
+      }
+    ],
+    "authority_blockers": [
+      {
+        "id": "BLK-provider-role",
+        "summary": "Whether Quillhaven Academy is provider or deployer is undetermined for all eight systems. Every provider limb conclusion is withheld pending a formal determination.",
+        "evidence_ids": [
+          "SRC-REGISTER",
+          "E20",
+          "E26"
+        ],
+        "owner": "Legal and the system owners"
+      },
+      {
+        "id": "BLK-50-1",
+        "summary": "Whether Article 50(1) binds Quillhaven Academy for this system is a legal determination. The mapping from the register's output_type to this obligation is ours, and the provider role is undetermined. Pending Legal.",
+        "evidence_ids": [
+          "SRC-ART50",
+          "RULE-50-1"
+        ],
+        "owner": "Legal"
+      },
+      {
+        "id": "BLK-50-2",
+        "summary": "Whether Article 50(2) binds Quillhaven Academy for this system is a legal determination. The mapping from the register's output_type to this obligation is ours, and the provider role is undetermined. Pending Legal.",
+        "evidence_ids": [
+          "SRC-ART50",
+          "RULE-50-2"
+        ],
+        "owner": "Legal"
+      },
+      {
+        "id": "BLK-50-3",
+        "summary": "Whether this system is an emotion recognition system or a biometric categorisation system within the meaning of Article 50(3) is a legal determination. Pending Legal.",
+        "evidence_ids": [
+          "SRC-ART50",
+          "RULE-50-3"
+        ],
+        "owner": "Legal"
+      },
+      {
+        "id": "BLK-50-4a",
+        "summary": "Whether this system's output constitutes a deep fake within the meaning of Article 50(4) is a legal determination. Pending Legal.",
+        "evidence_ids": [
+          "SRC-ART50",
+          "RULE-50-4a"
+        ],
+        "owner": "Legal"
+      },
+      {
+        "id": "BLK-50-4b",
+        "summary": "Whether text produced by this system is published with the purpose of informing the public on matters of public interest is a legal determination. Pending Legal.",
+        "evidence_ids": [
+          "SRC-ART50",
+          "RULE-50-4b"
+        ],
+        "owner": "Legal"
+      }
+    ]
+  },
+  "unresolved": [
+    {
+      "id": "BLK-provider-role",
+      "summary": "Whether Quillhaven Academy is provider or deployer is undetermined for all eight systems. Every provider limb conclusion is withheld pending a formal determination.",
+      "evidence_ids": [
+        "SRC-REGISTER",
+        "E20",
+        "E26"
+      ],
+      "owner": "Legal and the system owners"
+    },
+    {
+      "id": "BLK-50-1",
+      "summary": "Whether Article 50(1) binds Quillhaven Academy for this system is a legal determination. The mapping from the register's output_type to this obligation is ours, and the provider role is undetermined. Pending Legal.",
+      "evidence_ids": [
+        "SRC-ART50",
+        "RULE-50-1"
+      ],
+      "owner": "Legal"
+    },
+    {
+      "id": "BLK-50-2",
+      "summary": "Whether Article 50(2) binds Quillhaven Academy for this system is a legal determination. The mapping from the register's output_type to this obligation is ours, and the provider role is undetermined. Pending Legal.",
+      "evidence_ids": [
+        "SRC-ART50",
+        "RULE-50-2"
+      ],
+      "owner": "Legal"
+    },
+    {
+      "id": "BLK-50-3",
+      "summary": "Whether this system is an emotion recognition system or a biometric categorisation system within the meaning of Article 50(3) is a legal determination. Pending Legal.",
+      "evidence_ids": [
+        "SRC-ART50",
+        "RULE-50-3"
+      ],
+      "owner": "Legal"
+    },
+    {
+      "id": "BLK-50-4a",
+      "summary": "Whether this system's output constitutes a deep fake within the meaning of Article 50(4) is a legal determination. Pending Legal.",
+      "evidence_ids": [
+        "SRC-ART50",
+        "RULE-50-4a"
+      ],
+      "owner": "Legal"
+    },
+    {
+      "id": "BLK-50-4b",
+      "summary": "Whether text produced by this system is published with the purpose of informing the public on matters of public interest is a legal determination. Pending Legal.",
+      "evidence_ids": [
+        "SRC-ART50",
+        "RULE-50-4b"
+      ],
+      "owner": "Legal"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "DEC-record-inapplicable-timing",
+      "summary": "The Article 50(2) transitional deadline of 02 Dec 2026 is recorded in timing_rules and marked as not applicable to any system on this run, with both reasons.",
+      "evidence_ids": [
+        "SRC-TIMELINE",
+        "BLK-provider-role",
+        "TIME-02Dec2026-new-prohibitions-article-50-2-transition",
+        "TIME-02Dec2026-transitional-deadline-for-certain-provid"
+      ],
+      "rationale": "The deadline cannot be applied today because no source records placed on market dates and the provider role is undetermined. Recording it anyway means that the moment Legal settles the role the rule is already in the trail, and a reviewer can see that this run knew the deadline exists rather than having missed it.",
+      "tradeoffs": [
+        "timing_rules carries a rule that applies to nothing on this run, which reads as clutter until the role question is settled.",
+        "A reader could mistake a recorded rule for an active obligation, so the record carries applicable_now false and names both reasons."
+      ]
+    }
+  ]
+}

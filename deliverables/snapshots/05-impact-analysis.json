@@ -1,0 +1,971 @@
+{
+  "schema_version": "regulatory-compliance-stage-snapshot/2",
+  "snapshot_id": "RUN-20260904T120000Z-05-impact-analysis",
+  "run_id": "RUN-20260904T120000Z",
+  "stage": "impact-analysis",
+  "sequence": 5,
+  "created_at": "2026-09-04T23:26:39Z",
+  "status": "partial",
+  "predecessor": {
+    "snapshot_id": "RUN-20260904T120000Z-04-evidence-reconciliation",
+    "path": "deliverables/snapshots/04-evidence-reconciliation.json",
+    "sha256": "sha256:6221c61601e083893dd9696da3ad98ed026c4259a9c37059cda657e1e1befa6d"
+  },
+  "consumed_record_ids": [
+    "FACT-AI-001-output_type",
+    "FACT-AI-001-exposed_group",
+    "RULE-50-1",
+    "RULE-50-2",
+    "RULE-50-3",
+    "RULE-50-4a",
+    "RULE-50-4b",
+    "FACT-AI-002-output_type",
+    "FACT-AI-002-exposed_group",
+    "FACT-AI-003-output_type",
+    "FACT-AI-003-exposed_group",
+    "FACT-AI-004-output_type",
+    "FACT-AI-004-exposed_group",
+    "FACT-AI-005-output_type",
+    "FACT-AI-005-exposed_group",
+    "FACT-AI-006-output_type",
+    "FACT-AI-006-exposed_group",
+    "FACT-AI-007-output_type",
+    "FACT-AI-007-exposed_group",
+    "FACT-AI-007-evidence_status",
+    "INC-REC-008",
+    "FACT-AI-008-output_type",
+    "FACT-AI-008-exposed_group",
+    "BLK-provider-role",
+    "GAP-ALL-policy-controls",
+    "GAP-ALL-placed-on-market"
+  ],
+  "produced_record_ids": [
+    "IMP-AI-001-50-1",
+    "IMP-AI-002-50-2",
+    "IMP-AI-003-50-2",
+    "IMP-AI-003-50-4a",
+    "IMP-AI-004-50-1",
+    "IMP-AI-005-50-3",
+    "IMP-AI-006-50-2",
+    "IMP-AI-007-50-1",
+    "IMP-AI-008-50-2",
+    "IMP-AI-008-50-4a",
+    "IMP-AI-001-50-2",
+    "IMP-AI-001-50-3",
+    "IMP-AI-001-50-4a",
+    "IMP-AI-001-50-4b",
+    "IMP-AI-002-50-1",
+    "IMP-AI-002-50-3",
+    "IMP-AI-002-50-4a",
+    "IMP-AI-002-50-4b",
+    "IMP-AI-003-50-1",
+    "IMP-AI-003-50-3",
+    "IMP-AI-003-50-4b",
+    "IMP-AI-004-50-2",
+    "IMP-AI-004-50-3",
+    "IMP-AI-004-50-4a",
+    "IMP-AI-004-50-4b",
+    "IMP-AI-005-50-1",
+    "IMP-AI-005-50-2",
+    "IMP-AI-005-50-4a",
+    "IMP-AI-005-50-4b",
+    "IMP-AI-006-50-1",
+    "IMP-AI-006-50-3",
+    "IMP-AI-006-50-4a",
+    "IMP-AI-006-50-4b",
+    "IMP-AI-007-50-2",
+    "IMP-AI-007-50-3",
+    "IMP-AI-007-50-4a",
+    "IMP-AI-007-50-4b",
+    "IMP-AI-008-50-1",
+    "IMP-AI-008-50-3",
+    "IMP-AI-008-50-4b",
+    "CFL-AI-007-50-1",
+    "UNR-provider-role",
+    "UNR-policy-controls",
+    "UNR-placed-on-market"
+  ],
+  "state": {
+    "impacts": [
+      {
+        "id": "IMP-AI-001-50-1",
+        "summary": "AI-001 Learner Support Chat against Article 50-1.",
+        "evidence_ids": [
+          "FACT-AI-001-output_type",
+          "FACT-AI-001-exposed_group",
+          "RULE-50-1"
+        ],
+        "system_id": "AI-001",
+        "system_name": "Learner Support Chat",
+        "obligation_limb": "50-1",
+        "binding_party": "provider",
+        "applicability": "applies",
+        "reason": "Article 50-1 binds providers. The provider role is undetermined for every system pending a formal determination by Legal and the system owners.",
+        "authority_blocker": "Whether Article 50(1) binds Quillhaven Academy for this system is a legal determination. The mapping from the register's output_type to this obligation is ours, and the provider role is undetermined. Pending Legal. The provider role is undetermined for every system.",
+        "owner": "Learner Operations",
+        "precedence_layer": 4,
+        "required_next_evidence": "A formal provider or deployer role determination from Legal and the system owners.",
+        "state": "unresolved"
+      },
+      {
+        "id": "IMP-AI-002-50-2",
+        "summary": "AI-002 Admissions Draft Assistant against Article 50-2.",
+        "evidence_ids": [
+          "FACT-AI-002-output_type",
+          "FACT-AI-002-exposed_group",
+          "RULE-50-2"
+        ],
+        "system_id": "AI-002",
+        "system_name": "Admissions Draft Assistant",
+        "obligation_limb": "50-2",
+        "binding_party": "provider",
+        "applicability": "applies",
+        "reason": "Article 50-2 binds providers. The provider role is undetermined for every system pending a formal determination by Legal and the system owners.",
+        "authority_blocker": "Whether Article 50(2) binds Quillhaven Academy for this system is a legal determination. The mapping from the register's output_type to this obligation is ours, and the provider role is undetermined. Pending Legal. The provider role is undetermined for every system.",
+        "owner": "Admissions",
+        "precedence_layer": 4,
+        "required_next_evidence": "A formal provider or deployer role determination from Legal and the system owners.",
+        "state": "unresolved"
+      },
+      {
+        "id": "IMP-AI-003-50-2",
+        "summary": "AI-003 Campaign Image Studio against Article 50-2.",
+        "evidence_ids": [
+          "FACT-AI-003-output_type",
+          "FACT-AI-003-exposed_group",
+          "RULE-50-2"
+        ],
+        "system_id": "AI-003",
+        "system_name": "Campaign Image Studio",
+        "obligation_limb": "50-2",
+        "binding_party": "provider",
+        "applicability": "applies",
+        "reason": "Article 50-2 binds providers. The provider role is undetermined for every system pending a formal determination by Legal and the system owners.",
+        "authority_blocker": "Whether Article 50(2) binds Quillhaven Academy for this system is a legal determination. The mapping from the register's output_type to this obligation is ours, and the provider role is undetermined. Pending Legal. The provider role is undetermined for every system.",
+        "owner": "Communications",
+        "precedence_layer": 4,
+        "required_next_evidence": "A formal provider or deployer role determination from Legal and the system owners.",
+        "state": "unresolved"
+      },
+      {
+        "id": "IMP-AI-003-50-4a",
+        "summary": "AI-003 Campaign Image Studio against Article 50-4a.",
+        "evidence_ids": [
+          "FACT-AI-003-output_type",
+          "FACT-AI-003-exposed_group",
+          "RULE-50-4a"
+        ],
+        "system_id": "AI-003",
+        "system_name": "Campaign Image Studio",
+        "obligation_limb": "50-4a",
+        "binding_party": "deployer",
+        "applicability": "undetermined",
+        "reason": "Applicability of Article 50-4a cannot be determined from the disclosed sources: The register records a synthetic output type, which is a necessary but not a sufficient condition. Whether the content resembles existing persons, objects, places, entities or events is not recorded by any disclosed source. Required next evidence: A description of the generated content and whether it depicts real persons or events, from the system owner.",
+        "authority_blocker": "Whether this system's output constitutes a deep fake within the meaning of Article 50(4) is a legal determination. Pending Legal.",
+        "owner": "Communications",
+        "precedence_layer": 2,
+        "required_next_evidence": "A description of the generated content and whether it depicts real persons or events, from the system owner.",
+        "state": "unresolved"
+      },
+      {
+        "id": "IMP-AI-004-50-1",
+        "summary": "AI-004 Pronunciation Coach against Article 50-1.",
+        "evidence_ids": [
+          "FACT-AI-004-output_type",
+          "FACT-AI-004-exposed_group",
+          "RULE-50-1"
+        ],
+        "system_id": "AI-004",
+        "system_name": "Pronunciation Coach",
+        "obligation_limb": "50-1",
+        "binding_party": "provider",
+        "applicability": "applies",
+        "reason": "Article 50-1 binds providers. The provider role is undetermined for every system pending a formal determination by Legal and the system owners.",
+        "authority_blocker": "Whether Article 50(1) binds Quillhaven Academy for this system is a legal determination. The mapping from the register's output_type to this obligation is ours, and the provider role is undetermined. Pending Legal. The provider role is undetermined for every system.",
+        "owner": "Learning Experience",
+        "precedence_layer": 4,
+        "required_next_evidence": "A formal provider or deployer role determination from Legal and the system owners.",
+        "state": "unresolved"
+      },
+      {
+        "id": "IMP-AI-005-50-3",
+        "summary": "AI-005 Remote Proctor Signal against Article 50-3.",
+        "evidence_ids": [
+          "FACT-AI-005-output_type",
+          "FACT-AI-005-exposed_group",
+          "RULE-50-3"
+        ],
+        "system_id": "AI-005",
+        "system_name": "Remote Proctor Signal",
+        "obligation_limb": "50-3",
+        "binding_party": "deployer",
+        "applicability": "undetermined",
+        "reason": "Applicability of Article 50-3 cannot be determined from the disclosed sources: The register records output_type classification, which is a necessary but not a sufficient condition. No disclosed source records what the classifier classifies. Required next evidence: The flagging criteria for this system, held by the system owners and outside anything the Compliance and Operations Manager can read.",
+        "authority_blocker": "Whether this system is an emotion recognition system or a biometric categorisation system within the meaning of Article 50(3) is a legal determination. Pending Legal.",
+        "owner": "Assessment Operations",
+        "precedence_layer": 2,
+        "required_next_evidence": "The flagging criteria for this system, held by the system owners and outside anything the Compliance and Operations Manager can read.",
+        "state": "unresolved"
+      },
+      {
+        "id": "IMP-AI-006-50-2",
+        "summary": "AI-006 Staff Summary Assistant against Article 50-2.",
+        "evidence_ids": [
+          "FACT-AI-006-output_type",
+          "FACT-AI-006-exposed_group",
+          "RULE-50-2"
+        ],
+        "system_id": "AI-006",
+        "system_name": "Staff Summary Assistant",
+        "obligation_limb": "50-2",
+        "binding_party": "provider",
+        "applicability": "applies",
+        "reason": "Article 50-2 binds providers. The provider role is undetermined for every system pending a formal determination by Legal and the system owners.",
+        "authority_blocker": "Whether Article 50(2) binds Quillhaven Academy for this system is a legal determination. The mapping from the register's output_type to this obligation is ours, and the provider role is undetermined. Pending Legal. The provider role is undetermined for every system.",
+        "owner": "People Operations",
+        "precedence_layer": 4,
+        "required_next_evidence": "A formal provider or deployer role determination from Legal and the system owners.",
+        "state": "unresolved"
+      },
+      {
+        "id": "IMP-AI-007-50-1",
+        "summary": "AI-007 Website Guide Avatar against Article 50-1.",
+        "evidence_ids": [
+          "FACT-AI-007-output_type",
+          "FACT-AI-007-exposed_group",
+          "RULE-50-1",
+          "FACT-AI-007-evidence_status",
+          "INC-REC-008"
+        ],
+        "system_id": "AI-007",
+        "system_name": "Website Guide Avatar",
+        "obligation_limb": "50-1",
+        "binding_party": "provider",
+        "applicability": "applies",
+        "reason": "The AI-system register records evidence_status conflicting for this system. The conflict is recorded, not adjudicated.",
+        "authority_blocker": "Whether Article 50(1) binds Quillhaven Academy for this system is a legal determination. The mapping from the register's output_type to this obligation is ours, and the provider role is undetermined. Pending Legal. The provider role is undetermined for every system.",
+        "owner": "Marketing",
+        "precedence_layer": 3,
+        "required_next_evidence": "Complete and uncontested evidence of the disclosure practice for this system.",
+        "state": "conflicting"
+      },
+      {
+        "id": "IMP-AI-008-50-2",
+        "summary": "AI-008 Video Localisation Tool against Article 50-2.",
+        "evidence_ids": [
+          "FACT-AI-008-output_type",
+          "FACT-AI-008-exposed_group",
+          "RULE-50-2"
+        ],
+        "system_id": "AI-008",
+        "system_name": "Video Localisation Tool",
+        "obligation_limb": "50-2",
+        "binding_party": "provider",
+        "applicability": "applies",
+        "reason": "Article 50-2 binds providers. The provider role is undetermined for every system pending a formal determination by Legal and the system owners.",
+        "authority_blocker": "Whether Article 50(2) binds Quillhaven Academy for this system is a legal determination. The mapping from the register's output_type to this obligation is ours, and the provider role is undetermined. Pending Legal. The provider role is undetermined for every system.",
+        "owner": "Communications",
+        "precedence_layer": 4,
+        "required_next_evidence": "A formal provider or deployer role determination from Legal and the system owners.",
+        "state": "unresolved"
+      },
+      {
+        "id": "IMP-AI-008-50-4a",
+        "summary": "AI-008 Video Localisation Tool against Article 50-4a.",
+        "evidence_ids": [
+          "FACT-AI-008-output_type",
+          "FACT-AI-008-exposed_group",
+          "RULE-50-4a"
+        ],
+        "system_id": "AI-008",
+        "system_name": "Video Localisation Tool",
+        "obligation_limb": "50-4a",
+        "binding_party": "deployer",
+        "applicability": "undetermined",
+        "reason": "Applicability of Article 50-4a cannot be determined from the disclosed sources: The register records a synthetic output type, which is a necessary but not a sufficient condition. Whether the content resembles existing persons, objects, places, entities or events is not recorded by any disclosed source. Required next evidence: A description of the generated content and whether it depicts real persons or events, from the system owner.",
+        "authority_blocker": "Whether this system's output constitutes a deep fake within the meaning of Article 50(4) is a legal determination. Pending Legal.",
+        "owner": "Communications",
+        "precedence_layer": 2,
+        "required_next_evidence": "A description of the generated content and whether it depicts real persons or events, from the system owner.",
+        "state": "unresolved"
+      }
+    ],
+    "unaffected_items": [
+      {
+        "id": "IMP-AI-001-50-2",
+        "summary": "AI-001 Learner Support Chat against Article 50-2.",
+        "evidence_ids": [
+          "FACT-AI-001-output_type",
+          "FACT-AI-001-exposed_group",
+          "RULE-50-2"
+        ],
+        "system_id": "AI-001",
+        "system_name": "Learner Support Chat",
+        "obligation_limb": "50-2",
+        "binding_party": "provider",
+        "applicability": "does-not-apply",
+        "reason": "Article 50-2 does not apply: the trigger condition output_type is one of text, synthetic_image, synthetic_audio_video is not met (direct_interaction output, exposed to learners).",
+        "authority_blocker": "Whether Article 50(2) binds Quillhaven Academy for this system is a legal determination. The mapping from the register's output_type to this obligation is ours, and the provider role is undetermined. Pending Legal. The provider role is undetermined for every system.",
+        "owner": "Learner Operations",
+        "precedence_layer": 1,
+        "required_next_evidence": null
+      },
+      {
+        "id": "IMP-AI-001-50-3",
+        "summary": "AI-001 Learner Support Chat against Article 50-3.",
+        "evidence_ids": [
+          "FACT-AI-001-output_type",
+          "FACT-AI-001-exposed_group",
+          "RULE-50-3"
+        ],
+        "system_id": "AI-001",
+        "system_name": "Learner Support Chat",
+        "obligation_limb": "50-3",
+        "binding_party": "deployer",
+        "applicability": "does-not-apply",
+        "reason": "Article 50-3 does not apply: the trigger condition output_type is classification is not met (direct_interaction output, exposed to learners).",
+        "authority_blocker": "Whether this system is an emotion recognition system or a biometric categorisation system within the meaning of Article 50(3) is a legal determination. Pending Legal.",
+        "owner": "Learner Operations",
+        "precedence_layer": 1,
+        "required_next_evidence": null
+      },
+      {
+        "id": "IMP-AI-001-50-4a",
+        "summary": "AI-001 Learner Support Chat against Article 50-4a.",
+        "evidence_ids": [
+          "FACT-AI-001-output_type",
+          "FACT-AI-001-exposed_group",
+          "RULE-50-4a"
+        ],
+        "system_id": "AI-001",
+        "system_name": "Learner Support Chat",
+        "obligation_limb": "50-4a",
+        "binding_party": "deployer",
+        "applicability": "does-not-apply",
+        "reason": "Article 50-4a does not apply: the trigger condition output_type is one of synthetic_image, synthetic_audio_video is not met (direct_interaction output, exposed to learners).",
+        "authority_blocker": "Whether this system's output constitutes a deep fake within the meaning of Article 50(4) is a legal determination. Pending Legal.",
+        "owner": "Learner Operations",
+        "precedence_layer": 1,
+        "required_next_evidence": null
+      },
+      {
+        "id": "IMP-AI-001-50-4b",
+        "summary": "AI-001 Learner Support Chat against Article 50-4b.",
+        "evidence_ids": [
+          "FACT-AI-001-output_type",
+          "FACT-AI-001-exposed_group",
+          "RULE-50-4b"
+        ],
+        "system_id": "AI-001",
+        "system_name": "Learner Support Chat",
+        "obligation_limb": "50-4b",
+        "binding_party": "deployer",
+        "applicability": "does-not-apply",
+        "reason": "Article 50-4b does not apply: the trigger condition output_type is text and exposed_group is public is not met (direct_interaction output, exposed to learners).",
+        "authority_blocker": "Whether text produced by this system is published with the purpose of informing the public on matters of public interest is a legal determination. Pending Legal.",
+        "owner": "Learner Operations",
+        "precedence_layer": 1,
+        "required_next_evidence": null
+      },
+      {
+        "id": "IMP-AI-002-50-1",
+        "summary": "AI-002 Admissions Draft Assistant against Article 50-1.",
+        "evidence_ids": [
+          "FACT-AI-002-output_type",
+          "FACT-AI-002-exposed_group",
+          "RULE-50-1"
+        ],
+        "system_id": "AI-002",
+        "system_name": "Admissions Draft Assistant",
+        "obligation_limb": "50-1",
+        "binding_party": "provider",
+        "applicability": "does-not-apply",
+        "reason": "Article 50-1 does not apply: the trigger condition output_type is direct_interaction is not met (text output, exposed to applicants).",
+        "authority_blocker": "Whether Article 50(1) binds Quillhaven Academy for this system is a legal determination. The mapping from the register's output_type to this obligation is ours, and the provider role is undetermined. Pending Legal. The provider role is undetermined for every system.",
+        "owner": "Admissions",
+        "precedence_layer": 1,
+        "required_next_evidence": null
+      },
+      {
+        "id": "IMP-AI-002-50-3",
+        "summary": "AI-002 Admissions Draft Assistant against Article 50-3.",
+        "evidence_ids": [
+          "FACT-AI-002-output_type",
+          "FACT-AI-002-exposed_group",
+          "RULE-50-3"
+        ],
+        "system_id": "AI-002",
+        "system_name": "Admissions Draft Assistant",
+        "obligation_limb": "50-3",
+        "binding_party": "deployer",
+        "applicability": "does-not-apply",
+        "reason": "Article 50-3 does not apply: the trigger condition output_type is classification is not met (text output, exposed to applicants).",
+        "authority_blocker": "Whether this system is an emotion recognition system or a biometric categorisation system within the meaning of Article 50(3) is a legal determination. Pending Legal.",
+        "owner": "Admissions",
+        "precedence_layer": 1,
+        "required_next_evidence": null
+      },
+      {
+        "id": "IMP-AI-002-50-4a",
+        "summary": "AI-002 Admissions Draft Assistant against Article 50-4a.",
+        "evidence_ids": [
+          "FACT-AI-002-output_type",
+          "FACT-AI-002-exposed_group",
+          "RULE-50-4a"
+        ],
+        "system_id": "AI-002",
+        "system_name": "Admissions Draft Assistant",
+        "obligation_limb": "50-4a",
+        "binding_party": "deployer",
+        "applicability": "does-not-apply",
+        "reason": "Article 50-4a does not apply: the trigger condition output_type is one of synthetic_image, synthetic_audio_video is not met (text output, exposed to applicants).",
+        "authority_blocker": "Whether this system's output constitutes a deep fake within the meaning of Article 50(4) is a legal determination. Pending Legal.",
+        "owner": "Admissions",
+        "precedence_layer": 1,
+        "required_next_evidence": null
+      },
+      {
+        "id": "IMP-AI-002-50-4b",
+        "summary": "AI-002 Admissions Draft Assistant against Article 50-4b.",
+        "evidence_ids": [
+          "FACT-AI-002-output_type",
+          "FACT-AI-002-exposed_group",
+          "RULE-50-4b"
+        ],
+        "system_id": "AI-002",
+        "system_name": "Admissions Draft Assistant",
+        "obligation_limb": "50-4b",
+        "binding_party": "deployer",
+        "applicability": "does-not-apply",
+        "reason": "Article 50-4b does not apply: the trigger condition output_type is text and exposed_group is public is not met (text output, exposed to applicants).",
+        "authority_blocker": "Whether text produced by this system is published with the purpose of informing the public on matters of public interest is a legal determination. Pending Legal.",
+        "owner": "Admissions",
+        "precedence_layer": 1,
+        "required_next_evidence": null
+      },
+      {
+        "id": "IMP-AI-003-50-1",
+        "summary": "AI-003 Campaign Image Studio against Article 50-1.",
+        "evidence_ids": [
+          "FACT-AI-003-output_type",
+          "FACT-AI-003-exposed_group",
+          "RULE-50-1"
+        ],
+        "system_id": "AI-003",
+        "system_name": "Campaign Image Studio",
+        "obligation_limb": "50-1",
+        "binding_party": "provider",
+        "applicability": "does-not-apply",
+        "reason": "Article 50-1 does not apply: the trigger condition output_type is direct_interaction is not met (synthetic_image output, exposed to public).",
+        "authority_blocker": "Whether Article 50(1) binds Quillhaven Academy for this system is a legal determination. The mapping from the register's output_type to this obligation is ours, and the provider role is undetermined. Pending Legal. The provider role is undetermined for every system.",
+        "owner": "Communications",
+        "precedence_layer": 1,
+        "required_next_evidence": null
+      },
+      {
+        "id": "IMP-AI-003-50-3",
+        "summary": "AI-003 Campaign Image Studio against Article 50-3.",
+        "evidence_ids": [
+          "FACT-AI-003-output_type",
+          "FACT-AI-003-exposed_group",
+          "RULE-50-3"
+        ],
+        "system_id": "AI-003",
+        "system_name": "Campaign Image Studio",
+        "obligation_limb": "50-3",
+        "binding_party": "deployer",
+        "applicability": "does-not-apply",
+        "reason": "Article 50-3 does not apply: the trigger condition output_type is classification is not met (synthetic_image output, exposed to public).",
+        "authority_blocker": "Whether this system is an emotion recognition system or a biometric categorisation system within the meaning of Article 50(3) is a legal determination. Pending Legal.",
+        "owner": "Communications",
+        "precedence_layer": 1,
+        "required_next_evidence": null
+      },
+      {
+        "id": "IMP-AI-003-50-4b",
+        "summary": "AI-003 Campaign Image Studio against Article 50-4b.",
+        "evidence_ids": [
+          "FACT-AI-003-output_type",
+          "FACT-AI-003-exposed_group",
+          "RULE-50-4b"
+        ],
+        "system_id": "AI-003",
+        "system_name": "Campaign Image Studio",
+        "obligation_limb": "50-4b",
+        "binding_party": "deployer",
+        "applicability": "does-not-apply",
+        "reason": "Article 50-4b does not apply: the trigger condition output_type is text and exposed_group is public is not met (synthetic_image output, exposed to public).",
+        "authority_blocker": "Whether text produced by this system is published with the purpose of informing the public on matters of public interest is a legal determination. Pending Legal.",
+        "owner": "Communications",
+        "precedence_layer": 1,
+        "required_next_evidence": null
+      },
+      {
+        "id": "IMP-AI-004-50-2",
+        "summary": "AI-004 Pronunciation Coach against Article 50-2.",
+        "evidence_ids": [
+          "FACT-AI-004-output_type",
+          "FACT-AI-004-exposed_group",
+          "RULE-50-2"
+        ],
+        "system_id": "AI-004",
+        "system_name": "Pronunciation Coach",
+        "obligation_limb": "50-2",
+        "binding_party": "provider",
+        "applicability": "does-not-apply",
+        "reason": "Article 50-2 does not apply: the trigger condition output_type is one of text, synthetic_image, synthetic_audio_video is not met (direct_interaction output, exposed to learners).",
+        "authority_blocker": "Whether Article 50(2) binds Quillhaven Academy for this system is a legal determination. The mapping from the register's output_type to this obligation is ours, and the provider role is undetermined. Pending Legal. The provider role is undetermined for every system.",
+        "owner": "Learning Experience",
+        "precedence_layer": 1,
+        "required_next_evidence": null
+      },
+      {
+        "id": "IMP-AI-004-50-3",
+        "summary": "AI-004 Pronunciation Coach against Article 50-3.",
+        "evidence_ids": [
+          "FACT-AI-004-output_type",
+          "FACT-AI-004-exposed_group",
+          "RULE-50-3"
+        ],
+        "system_id": "AI-004",
+        "system_name": "Pronunciation Coach",
+        "obligation_limb": "50-3",
+        "binding_party": "deployer",
+        "applicability": "does-not-apply",
+        "reason": "Article 50-3 does not apply: the trigger condition output_type is classification is not met (direct_interaction output, exposed to learners).",
+        "authority_blocker": "Whether this system is an emotion recognition system or a biometric categorisation system within the meaning of Article 50(3) is a legal determination. Pending Legal.",
+        "owner": "Learning Experience",
+        "precedence_layer": 1,
+        "required_next_evidence": null
+      },
+      {
+        "id": "IMP-AI-004-50-4a",
+        "summary": "AI-004 Pronunciation Coach against Article 50-4a.",
+        "evidence_ids": [
+          "FACT-AI-004-output_type",
+          "FACT-AI-004-exposed_group",
+          "RULE-50-4a"
+        ],
+        "system_id": "AI-004",
+        "system_name": "Pronunciation Coach",
+        "obligation_limb": "50-4a",
+        "binding_party": "deployer",
+        "applicability": "does-not-apply",
+        "reason": "Article 50-4a does not apply: the trigger condition output_type is one of synthetic_image, synthetic_audio_video is not met (direct_interaction output, exposed to learners).",
+        "authority_blocker": "Whether this system's output constitutes a deep fake within the meaning of Article 50(4) is a legal determination. Pending Legal.",
+        "owner": "Learning Experience",
+        "precedence_layer": 1,
+        "required_next_evidence": null
+      },
+      {
+        "id": "IMP-AI-004-50-4b",
+        "summary": "AI-004 Pronunciation Coach against Article 50-4b.",
+        "evidence_ids": [
+          "FACT-AI-004-output_type",
+          "FACT-AI-004-exposed_group",
+          "RULE-50-4b"
+        ],
+        "system_id": "AI-004",
+        "system_name": "Pronunciation Coach",
+        "obligation_limb": "50-4b",
+        "binding_party": "deployer",
+        "applicability": "does-not-apply",
+        "reason": "Article 50-4b does not apply: the trigger condition output_type is text and exposed_group is public is not met (direct_interaction output, exposed to learners).",
+        "authority_blocker": "Whether text produced by this system is published with the purpose of informing the public on matters of public interest is a legal determination. Pending Legal.",
+        "owner": "Learning Experience",
+        "precedence_layer": 1,
+        "required_next_evidence": null
+      },
+      {
+        "id": "IMP-AI-005-50-1",
+        "summary": "AI-005 Remote Proctor Signal against Article 50-1.",
+        "evidence_ids": [
+          "FACT-AI-005-output_type",
+          "FACT-AI-005-exposed_group",
+          "RULE-50-1"
+        ],
+        "system_id": "AI-005",
+        "system_name": "Remote Proctor Signal",
+        "obligation_limb": "50-1",
+        "binding_party": "provider",
+        "applicability": "does-not-apply",
+        "reason": "Article 50-1 does not apply: the trigger condition output_type is direct_interaction is not met (classification output, exposed to learners).",
+        "authority_blocker": "Whether Article 50(1) binds Quillhaven Academy for this system is a legal determination. The mapping from the register's output_type to this obligation is ours, and the provider role is undetermined. Pending Legal. The provider role is undetermined for every system.",
+        "owner": "Assessment Operations",
+        "precedence_layer": 1,
+        "required_next_evidence": null
+      },
+      {
+        "id": "IMP-AI-005-50-2",
+        "summary": "AI-005 Remote Proctor Signal against Article 50-2.",
+        "evidence_ids": [
+          "FACT-AI-005-output_type",
+          "FACT-AI-005-exposed_group",
+          "RULE-50-2"
+        ],
+        "system_id": "AI-005",
+        "system_name": "Remote Proctor Signal",
+        "obligation_limb": "50-2",
+        "binding_party": "provider",
+        "applicability": "does-not-apply",
+        "reason": "Article 50-2 does not apply: the trigger condition output_type is one of text, synthetic_image, synthetic_audio_video is not met (classification output, exposed to learners).",
+        "authority_blocker": "Whether Article 50(2) binds Quillhaven Academy for this system is a legal determination. The mapping from the register's output_type to this obligation is ours, and the provider role is undetermined. Pending Legal. The provider role is undetermined for every system.",
+        "owner": "Assessment Operations",
+        "precedence_layer": 1,
+        "required_next_evidence": null
+      },
+      {
+        "id": "IMP-AI-005-50-4a",
+        "summary": "AI-005 Remote Proctor Signal against Article 50-4a.",
+        "evidence_ids": [
+          "FACT-AI-005-output_type",
+          "FACT-AI-005-exposed_group",
+          "RULE-50-4a"
+        ],
+        "system_id": "AI-005",
+        "system_name": "Remote Proctor Signal",
+        "obligation_limb": "50-4a",
+        "binding_party": "deployer",
+        "applicability": "does-not-apply",
+        "reason": "Article 50-4a does not apply: the trigger condition output_type is one of synthetic_image, synthetic_audio_video is not met (classification output, exposed to learners).",
+        "authority_blocker": "Whether this system's output constitutes a deep fake within the meaning of Article 50(4) is a legal determination. Pending Legal.",
+        "owner": "Assessment Operations",
+        "precedence_layer": 1,
+        "required_next_evidence": null
+      },
+      {
+        "id": "IMP-AI-005-50-4b",
+        "summary": "AI-005 Remote Proctor Signal against Article 50-4b.",
+        "evidence_ids": [
+          "FACT-AI-005-output_type",
+          "FACT-AI-005-exposed_group",
+          "RULE-50-4b"
+        ],
+        "system_id": "AI-005",
+        "system_name": "Remote Proctor Signal",
+        "obligation_limb": "50-4b",
+        "binding_party": "deployer",
+        "applicability": "does-not-apply",
+        "reason": "Article 50-4b does not apply: the trigger condition output_type is text and exposed_group is public is not met (classification output, exposed to learners).",
+        "authority_blocker": "Whether text produced by this system is published with the purpose of informing the public on matters of public interest is a legal determination. Pending Legal.",
+        "owner": "Assessment Operations",
+        "precedence_layer": 1,
+        "required_next_evidence": null
+      },
+      {
+        "id": "IMP-AI-006-50-1",
+        "summary": "AI-006 Staff Summary Assistant against Article 50-1.",
+        "evidence_ids": [
+          "FACT-AI-006-output_type",
+          "FACT-AI-006-exposed_group",
+          "RULE-50-1"
+        ],
+        "system_id": "AI-006",
+        "system_name": "Staff Summary Assistant",
+        "obligation_limb": "50-1",
+        "binding_party": "provider",
+        "applicability": "does-not-apply",
+        "reason": "Article 50-1 does not apply: the trigger condition output_type is direct_interaction is not met (text output, exposed to staff).",
+        "authority_blocker": "Whether Article 50(1) binds Quillhaven Academy for this system is a legal determination. The mapping from the register's output_type to this obligation is ours, and the provider role is undetermined. Pending Legal. The provider role is undetermined for every system.",
+        "owner": "People Operations",
+        "precedence_layer": 1,
+        "required_next_evidence": null
+      },
+      {
+        "id": "IMP-AI-006-50-3",
+        "summary": "AI-006 Staff Summary Assistant against Article 50-3.",
+        "evidence_ids": [
+          "FACT-AI-006-output_type",
+          "FACT-AI-006-exposed_group",
+          "RULE-50-3"
+        ],
+        "system_id": "AI-006",
+        "system_name": "Staff Summary Assistant",
+        "obligation_limb": "50-3",
+        "binding_party": "deployer",
+        "applicability": "does-not-apply",
+        "reason": "Article 50-3 does not apply: the trigger condition output_type is classification is not met (text output, exposed to staff).",
+        "authority_blocker": "Whether this system is an emotion recognition system or a biometric categorisation system within the meaning of Article 50(3) is a legal determination. Pending Legal.",
+        "owner": "People Operations",
+        "precedence_layer": 1,
+        "required_next_evidence": null
+      },
+      {
+        "id": "IMP-AI-006-50-4a",
+        "summary": "AI-006 Staff Summary Assistant against Article 50-4a.",
+        "evidence_ids": [
+          "FACT-AI-006-output_type",
+          "FACT-AI-006-exposed_group",
+          "RULE-50-4a"
+        ],
+        "system_id": "AI-006",
+        "system_name": "Staff Summary Assistant",
+        "obligation_limb": "50-4a",
+        "binding_party": "deployer",
+        "applicability": "does-not-apply",
+        "reason": "Article 50-4a does not apply: the trigger condition output_type is one of synthetic_image, synthetic_audio_video is not met (text output, exposed to staff).",
+        "authority_blocker": "Whether this system's output constitutes a deep fake within the meaning of Article 50(4) is a legal determination. Pending Legal.",
+        "owner": "People Operations",
+        "precedence_layer": 1,
+        "required_next_evidence": null
+      },
+      {
+        "id": "IMP-AI-006-50-4b",
+        "summary": "AI-006 Staff Summary Assistant against Article 50-4b.",
+        "evidence_ids": [
+          "FACT-AI-006-output_type",
+          "FACT-AI-006-exposed_group",
+          "RULE-50-4b"
+        ],
+        "system_id": "AI-006",
+        "system_name": "Staff Summary Assistant",
+        "obligation_limb": "50-4b",
+        "binding_party": "deployer",
+        "applicability": "does-not-apply",
+        "reason": "Article 50-4b does not apply: the trigger condition output_type is text and exposed_group is public is not met (text output, exposed to staff).",
+        "authority_blocker": "Whether text produced by this system is published with the purpose of informing the public on matters of public interest is a legal determination. Pending Legal.",
+        "owner": "People Operations",
+        "precedence_layer": 1,
+        "required_next_evidence": null
+      },
+      {
+        "id": "IMP-AI-007-50-2",
+        "summary": "AI-007 Website Guide Avatar against Article 50-2.",
+        "evidence_ids": [
+          "FACT-AI-007-output_type",
+          "FACT-AI-007-exposed_group",
+          "RULE-50-2"
+        ],
+        "system_id": "AI-007",
+        "system_name": "Website Guide Avatar",
+        "obligation_limb": "50-2",
+        "binding_party": "provider",
+        "applicability": "does-not-apply",
+        "reason": "Article 50-2 does not apply: the trigger condition output_type is one of text, synthetic_image, synthetic_audio_video is not met (direct_interaction output, exposed to public).",
+        "authority_blocker": "Whether Article 50(2) binds Quillhaven Academy for this system is a legal determination. The mapping from the register's output_type to this obligation is ours, and the provider role is undetermined. Pending Legal. The provider role is undetermined for every system.",
+        "owner": "Marketing",
+        "precedence_layer": 1,
+        "required_next_evidence": null
+      },
+      {
+        "id": "IMP-AI-007-50-3",
+        "summary": "AI-007 Website Guide Avatar against Article 50-3.",
+        "evidence_ids": [
+          "FACT-AI-007-output_type",
+          "FACT-AI-007-exposed_group",
+          "RULE-50-3"
+        ],
+        "system_id": "AI-007",
+        "system_name": "Website Guide Avatar",
+        "obligation_limb": "50-3",
+        "binding_party": "deployer",
+        "applicability": "does-not-apply",
+        "reason": "Article 50-3 does not apply: the trigger condition output_type is classification is not met (direct_interaction output, exposed to public).",
+        "authority_blocker": "Whether this system is an emotion recognition system or a biometric categorisation system within the meaning of Article 50(3) is a legal determination. Pending Legal.",
+        "owner": "Marketing",
+        "precedence_layer": 1,
+        "required_next_evidence": null
+      },
+      {
+        "id": "IMP-AI-007-50-4a",
+        "summary": "AI-007 Website Guide Avatar against Article 50-4a.",
+        "evidence_ids": [
+          "FACT-AI-007-output_type",
+          "FACT-AI-007-exposed_group",
+          "RULE-50-4a"
+        ],
+        "system_id": "AI-007",
+        "system_name": "Website Guide Avatar",
+        "obligation_limb": "50-4a",
+        "binding_party": "deployer",
+        "applicability": "does-not-apply",
+        "reason": "Article 50-4a does not apply: the trigger condition output_type is one of synthetic_image, synthetic_audio_video is not met (direct_interaction output, exposed to public).",
+        "authority_blocker": "Whether this system's output constitutes a deep fake within the meaning of Article 50(4) is a legal determination. Pending Legal.",
+        "owner": "Marketing",
+        "precedence_layer": 1,
+        "required_next_evidence": null
+      },
+      {
+        "id": "IMP-AI-007-50-4b",
+        "summary": "AI-007 Website Guide Avatar against Article 50-4b.",
+        "evidence_ids": [
+          "FACT-AI-007-output_type",
+          "FACT-AI-007-exposed_group",
+          "RULE-50-4b"
+        ],
+        "system_id": "AI-007",
+        "system_name": "Website Guide Avatar",
+        "obligation_limb": "50-4b",
+        "binding_party": "deployer",
+        "applicability": "does-not-apply",
+        "reason": "Article 50-4b does not apply: the trigger condition output_type is text and exposed_group is public is not met (direct_interaction output, exposed to public).",
+        "authority_blocker": "Whether text produced by this system is published with the purpose of informing the public on matters of public interest is a legal determination. Pending Legal.",
+        "owner": "Marketing",
+        "precedence_layer": 1,
+        "required_next_evidence": null
+      },
+      {
+        "id": "IMP-AI-008-50-1",
+        "summary": "AI-008 Video Localisation Tool against Article 50-1.",
+        "evidence_ids": [
+          "FACT-AI-008-output_type",
+          "FACT-AI-008-exposed_group",
+          "RULE-50-1"
+        ],
+        "system_id": "AI-008",
+        "system_name": "Video Localisation Tool",
+        "obligation_limb": "50-1",
+        "binding_party": "provider",
+        "applicability": "does-not-apply",
+        "reason": "Article 50-1 does not apply: the trigger condition output_type is direct_interaction is not met (synthetic_audio_video output, exposed to public).",
+        "authority_blocker": "Whether Article 50(1) binds Quillhaven Academy for this system is a legal determination. The mapping from the register's output_type to this obligation is ours, and the provider role is undetermined. Pending Legal. The provider role is undetermined for every system.",
+        "owner": "Communications",
+        "precedence_layer": 1,
+        "required_next_evidence": null
+      },
+      {
+        "id": "IMP-AI-008-50-3",
+        "summary": "AI-008 Video Localisation Tool against Article 50-3.",
+        "evidence_ids": [
+          "FACT-AI-008-output_type",
+          "FACT-AI-008-exposed_group",
+          "RULE-50-3"
+        ],
+        "system_id": "AI-008",
+        "system_name": "Video Localisation Tool",
+        "obligation_limb": "50-3",
+        "binding_party": "deployer",
+        "applicability": "does-not-apply",
+        "reason": "Article 50-3 does not apply: the trigger condition output_type is classification is not met (synthetic_audio_video output, exposed to public).",
+        "authority_blocker": "Whether this system is an emotion recognition system or a biometric categorisation system within the meaning of Article 50(3) is a legal determination. Pending Legal.",
+        "owner": "Communications",
+        "precedence_layer": 1,
+        "required_next_evidence": null
+      },
+      {
+        "id": "IMP-AI-008-50-4b",
+        "summary": "AI-008 Video Localisation Tool against Article 50-4b.",
+        "evidence_ids": [
+          "FACT-AI-008-output_type",
+          "FACT-AI-008-exposed_group",
+          "RULE-50-4b"
+        ],
+        "system_id": "AI-008",
+        "system_name": "Video Localisation Tool",
+        "obligation_limb": "50-4b",
+        "binding_party": "deployer",
+        "applicability": "does-not-apply",
+        "reason": "Article 50-4b does not apply: the trigger condition output_type is text and exposed_group is public is not met (synthetic_audio_video output, exposed to public).",
+        "authority_blocker": "Whether text produced by this system is published with the purpose of informing the public on matters of public interest is a legal determination. Pending Legal.",
+        "owner": "Communications",
+        "precedence_layer": 1,
+        "required_next_evidence": null
+      }
+    ],
+    "conflicts": [
+      {
+        "id": "CFL-AI-007-50-1",
+        "summary": "AI-007 against Article 50-1 is recorded as conflicting because the register records evidence_status conflicting. Not adjudicated.",
+        "evidence_ids": [
+          "FACT-AI-007-output_type",
+          "FACT-AI-007-exposed_group",
+          "RULE-50-1",
+          "FACT-AI-007-evidence_status",
+          "INC-REC-008"
+        ],
+        "owner": "Marketing"
+      }
+    ],
+    "unresolved_items": [
+      {
+        "id": "UNR-provider-role",
+        "summary": "The provider or deployer role is undetermined for all eight systems, which withholds every Article 50(1) and 50(2) conclusion.",
+        "evidence_ids": [
+          "BLK-provider-role",
+          "E20",
+          "E26"
+        ],
+        "owner": "Legal and the system owners",
+        "required_next_evidence": "Written evidence from the vendor contract or system deployment records confirming who built and placed each system into service, followed by a formal sign-off from Legal."
+      },
+      {
+        "id": "UNR-policy-controls",
+        "summary": "The internal AI-use policy could not be read, so the controls the school measures itself against are unknown.",
+        "evidence_ids": [
+          "GAP-ALL-policy-controls",
+          "SRC-POLICY"
+        ],
+        "owner": "Leadership",
+        "required_next_evidence": "The policy text or the relevant excerpts, supplied by the document owner."
+      },
+      {
+        "id": "UNR-placed-on-market",
+        "summary": "No source records placed on market or deployment dates, so the Article 50(2) transitional deadline of 02 Dec 2026 cannot be applied to any system.",
+        "evidence_ids": [
+          "GAP-ALL-placed-on-market"
+        ],
+        "owner": "The system owners",
+        "required_next_evidence": "Placed on market or deployment dates per system."
+      }
+    ]
+  },
+  "unresolved": [
+    {
+      "id": "UNR-provider-role",
+      "summary": "The provider or deployer role is undetermined for all eight systems, which withholds every Article 50(1) and 50(2) conclusion.",
+      "evidence_ids": [
+        "BLK-provider-role",
+        "E20",
+        "E26"
+      ],
+      "owner": "Legal and the system owners",
+      "required_next_evidence": "Written evidence from the vendor contract or system deployment records confirming who built and placed each system into service, followed by a formal sign-off from Legal."
+    },
+    {
+      "id": "UNR-policy-controls",
+      "summary": "The internal AI-use policy could not be read, so the controls the school measures itself against are unknown.",
+      "evidence_ids": [
+        "GAP-ALL-policy-controls",
+        "SRC-POLICY"
+      ],
+      "owner": "Leadership",
+      "required_next_evidence": "The policy text or the relevant excerpts, supplied by the document owner."
+    },
+    {
+      "id": "UNR-placed-on-market",
+      "summary": "No source records placed on market or deployment dates, so the Article 50(2) transitional deadline of 02 Dec 2026 cannot be applied to any system.",
+      "evidence_ids": [
+        "GAP-ALL-placed-on-market"
+      ],
+      "owner": "The system owners",
+      "required_next_evidence": "Placed on market or deployment dates per system."
+    }
+  ],
+  "decisions": [
+    {
+      "id": "DEC-provider-role-withheld",
+      "summary": "Provider limb conclusions are withheld for all eight systems.",
+      "evidence_ids": [
+        "BLK-provider-role",
+        "E20",
+        "E26"
+      ],
+      "rationale": "The register's provider_role column is maintained by system owners and the mechanism that puts it in doubt, described at E20, reaches the whole column rather than particular rows. A value of no in an operational record is not a legal role determination.",
+      "tradeoffs": [
+        "Seven pairs that might otherwise read supported-no-impact stay unresolved.",
+        "One determination by Legal settles all of them at once."
+      ]
+    },
+    {
+      "id": "DEC-state-precedence",
+      "summary": "A recorded conflict is assigned before the provider limb withholding.",
+      "evidence_ids": [
+        "CFL-ALL-deployment-dates"
+      ],
+      "rationale": "Reporting a corroborated evidence conflict as merely unresolved would leave the most concrete evidence problem visible only in stage 04, where neither Legal nor Operations reads.",
+      "tradeoffs": [
+        "A conflicting record still carries the role blocker, so nothing about the role question is lost."
+      ]
+    }
+  ]
+}
