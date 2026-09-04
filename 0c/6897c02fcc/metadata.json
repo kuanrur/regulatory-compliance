@@ -1,0 +1,30 @@
+{
+  "cli_version": "0.10.2",
+  "checkpoint_id": "0c6897c02fcc",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 9,
+  "files_touched": [
+    "regulatory-change-impact-brief/SKILL.md",
+    "regulatory-change-impact-brief/references/article-50-mapping.md",
+    "regulatory-change-impact-brief/references/decision-policy.md",
+    "regulatory-change-impact-brief/references/sources.md",
+    "regulatory-change-impact-brief/references/stage-contract.md"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0c/6897c02fcc/0/metadata.json",
+      "transcript": "/0c/6897c02fcc/0/full.jsonl",
+      "compact_transcript": "/0c/6897c02fcc/0/transcript.jsonl",
+      "content_hash": "/0c/6897c02fcc/0/content_hash.txt",
+      "prompt": "/0c/6897c02fcc/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 130,
+    "cache_creation_tokens": 262770,
+    "cache_read_tokens": 10039159,
+    "output_tokens": 153984,
+    "api_call_count": 65
+  }
+}

@@ -1,0 +1,38 @@
+現在要做Phase 2, Read
+~/Code/fellowship-apprentice-workspace/engagements/project-b/handoff-phase2-build-2026-09-04.md  that is the handoff from last night. This round produces regulatory-change-impact-brief/SKILL.md and its references/. No scripts yet, no snapshots yet. Give me the structure of SKILL.md first, not the content. I want to see what sections exist and what each one is for before anything gets written
+
+---
+
+一、script 擁有整條 pipeline。README:9 說 one command that fetches, writes,produces and validates，而 syllabus 第一個評分問題是這個 skill 跑起來可不可靠、會不會重複跑出同一個結果。每次重新推理的 agent 做不到「重複跑出同一個結果」。limb mapping 在規則固定之後就是查表，那就做成查表。Project A 也是決定性的 script
+
+二、第 7 節和第 11 節分開。README:70 把 material failure behavior 列為必須記載的六項之一，審查的人照那六項找，應該找得到六項。合併會讓其中一項消失，那個代價比重疊大
+
+三、eval/ 不放進 package。兩個理由。README:16-36 的目錄樹是指定的，往受評的交件裡加一個沒有既定契約的目錄，會引來「這個為什麼在這裡」的問題。而且第一個裁決把第三個的前提拿掉了：決定性的 script 不需要 model behaviour 的 eval baseline，它需要的是驗證，而 README:88 已經規定了。想要 eval baseline 當作 craft，放workspace 不放交件
+
+---
+
+兩個資料檔都放 scripts/，JSON，開始寫 SKILL.md
+
+---
+
+先不要補 references。我要先 /grill-me 這份 SKILL.md 的設計，改完再寫下游檔案，免得寫完又要改
+
+---
+
+九個都照你說的。Q4 維持 A。他講的是 system owner 標 deployer 但設定可能把我們推進 provider，那是在質疑整欄，不是只質疑 calendar 有意見的那三個，所以八個都扣住。Q3 你沒定兩個陣列的分界，分界是適用性不是合規。條款根本不適用就進 unaffected_items，條款適用而且證據顯示已經做到就進 impacts 標 supported-no-impact，適用但判不出來就 unresolved 或 conflicting。不然 supported-no-impact 永遠用不到，四個 enum 只用三個，人家會問為什麼。32 的窮盡檢查不變。繼續第二輪
+
+---
+
+九個都照你說的。Q1 拆成五個 limb、窮盡檢查改 40 我接受，那推翻我上一輪的 32，沒關係，理由比較硬。Q9 補一件：逐字稿那筆 source record 的 authority 你填 operational-evidence，那是現有 enum 裡最接近的，但 summary 要寫明它是 stakeholder testimony 不是系統產生的紀錄，不然它跟另外三份 operational-record 混成同一級，我們一路守的自我申報對操作證據那條線就沒了。另外抓取邏輯要分得出本機跟遠端，那筆不是活抓來源，不要讓 script 每次去 fetch 它。繼續第三輪
+
+---
+
+Q1 接受你的 A，但有一格要改。AI-007 的 50-1 應該是 conflicting 不是 unresolved。register 的 evidence_status 是 conflicting，REC-008 也是，那個衝突是有紀錄的真實衝突，跟角色未定是兩件事。用 unresolved 會讓全案最具體的營運發現在 stage 05 消失，只剩 stage 04 看得到。這不是放寬 gate，是把狀態選得更準。改完是 6 筆角色 unresolved、1 筆 conflicting、3 筆適用性 unresolved，supported 兩態還是零，那我接受，理由跟你一樣。Q4 選一筆 PA-ROLE-ALL 加七筆引用，因為那是 Legal 一次認定就全解的同一件事，拆七筆等於暗示要七次認定。其餘七題全部照你說的。繼續第四輪
+
+---
+
+七題照你說的，兩個要改。CSV 你說十六欄但列出來是十七個，數字對不上，spec 裡的計數錯誤會一路傳下去，回去數清楚。validation_checks 第十四項那個 em dash 檢查拿掉，那是我的個人書寫規則，其他十四項全部在驗契約和 lineage，混一項排版檢查進去只會讓審查的人問這條為什麼在這裡，要保留就當成 commit 前的習慣不要寫進 stage 07。Q1 的 A 我同意，理由跟你一樣，AI-007 是兩個來源說法一致所以不涉及裁決，AI-003 是兩個來源不一致所以那個不一致本身才是要記的東西。另外問一下，照你現在的規劃還要幾輪才會開始真的寫檔案？?
+
+---
+
+三題照你說的，Q2 有一個要改。timeline 的長度門檻 2000 對實測 2758 只有三成八的餘裕，而 timeline 是 binding 來源，誤判 invalid 會直接整案 block。那條的真正檢驗是四個日期標題加一條含 Article 50 的條目，長度測試在那裡沒有加分只有誤鎖風險。改成 1000 或直接拿掉，兩個結構測試留著。其他六個來源的門檻餘裕夠，不動。Q1 的 A 和 Q3 都同意，寫吧
