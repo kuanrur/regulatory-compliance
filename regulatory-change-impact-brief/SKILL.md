@@ -213,6 +213,12 @@ seconds apart while its normalised text hash does not.
 
 ## Gotchas
 
+- **A run in a clean clone leaves the seven snapshots modified and the three artifacts unchanged.**
+  Wrong default: read that as broken determinism and go hunting for the bug. Correct: this is the
+  intended shape. `created_at` and `retrieved_at` record the real moment each stage was written, so
+  a rerun moves them and the predecessor hashes that cover them. Every timestamp an artifact
+  displays comes from `--as-of`, so the artifacts do not move. Determinism lives in the record ids,
+  states, decisions and evidence pointers, and none of those change.
 - **The AI-system register has no deployment or placed on market date column.** As read on
   2026-09-04 it has thirteen columns and one date column, `evidence_updated_at`. Wrong default:
   read a deployment date from it. Correct: detect columns at run time and record the absence as an
