@@ -1,0 +1,1 @@
+先把 .claude/settings.json、.entire/.gitignore、.entire/settings.json 這三個檔 commit 進去，其他不要動
