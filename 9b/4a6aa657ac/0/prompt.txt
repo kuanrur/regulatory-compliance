@@ -1,0 +1,2 @@
+一、SKILL.md 的 gotchas 補一條：在乾淨 clone 裡跑完之後，七個 snapshot 會顯示為 modified 而三個 artifact 不會。那是設計預期，artifact 可重現、snapshot 帶真實寫入時刻，但不寫清楚的話 clone 下來跑的人會讀成 determinism 壞了
+二、補完 commit push
