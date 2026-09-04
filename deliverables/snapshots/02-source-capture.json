@@ -4,12 +4,12 @@
   "run_id": "RUN-20260904T120000Z",
   "stage": "source-capture",
   "sequence": 2,
-  "created_at": "2026-09-04T23:26:39Z",
+  "created_at": "2026-09-04T23:52:09Z",
   "status": "partial",
   "predecessor": {
     "snapshot_id": "RUN-20260904T120000Z-01-scope",
     "path": "deliverables/snapshots/01-scope.json",
-    "sha256": "sha256:4a5ad16d9d2b1a2fc4a6ad2ffc54dcdf2c4f4c325be8e45c433fe3d5a87c90d3"
+    "sha256": "sha256:6736abfc48493676a275079fa963cdc68c13d9e91e4dccbea41a62a9b18cdde1"
   },
   "consumed_record_ids": [
     "SCOPE-FRAME"
@@ -36,7 +36,7 @@
         "source_role": "binding-regulation",
         "authority": "binding",
         "locator": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-50",
-        "retrieved_at": "2026-09-04T23:26:37Z",
+        "retrieved_at": "2026-09-04T23:52:05Z",
         "retrieval_status": "retrieved",
         "content_type": "text/html; charset=utf-8",
         "version_metadata": {
@@ -67,7 +67,7 @@
         "source_role": "binding-regulation",
         "authority": "binding",
         "locator": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/eu-ai-act-implementation-timeline",
-        "retrieved_at": "2026-09-04T23:26:37Z",
+        "retrieved_at": "2026-09-04T23:52:06Z",
         "retrieval_status": "retrieved",
         "content_type": "text/html; charset=utf-8",
         "version_metadata": {
@@ -98,7 +98,7 @@
         "source_role": "official-guidance",
         "authority": "advisory",
         "locator": "https://digital-strategy.ec.europa.eu/en/faqs/transparency-obligations-under-article-50-ai-act",
-        "retrieved_at": "2026-09-04T23:26:37Z",
+        "retrieved_at": "2026-09-04T23:52:06Z",
         "retrieval_status": "retrieved",
         "content_type": "text/html; charset=UTF-8",
         "version_metadata": null,
@@ -125,7 +125,7 @@
         "source_role": "operational-record",
         "authority": "operational-evidence",
         "locator": "https://docs.google.com/spreadsheets/d/10ky745H_1h9XbGCXPJsiRp5yfdeU08TZtmrsCMinGgU/export?format=csv",
-        "retrieved_at": "2026-09-04T23:26:38Z",
+        "retrieved_at": "2026-09-04T23:52:07Z",
         "retrieval_status": "retrieved",
         "content_type": "text/csv; charset=utf-8",
         "version_metadata": null,
@@ -152,7 +152,7 @@
         "source_role": "operational-record",
         "authority": "operational-evidence",
         "locator": "https://docs.google.com/spreadsheets/d/19BYZ68OSbsa1i9OfF6MzthrdC6q6mt6IWk6ucI8u7Rk/export?format=csv",
-        "retrieved_at": "2026-09-04T23:26:38Z",
+        "retrieved_at": "2026-09-04T23:52:08Z",
         "retrieval_status": "retrieved",
         "content_type": "text/csv",
         "version_metadata": null,
@@ -179,7 +179,7 @@
         "source_role": "operational-record",
         "authority": "operational-evidence",
         "locator": "https://docs.google.com/spreadsheets/d/1xtXl_P7Yb9LaECZjjgtlyI-idoAJTAhH-1gQ4vQaCGA/export?format=csv",
-        "retrieved_at": "2026-09-04T23:26:39Z",
+        "retrieved_at": "2026-09-04T23:52:08Z",
         "retrieval_status": "retrieved",
         "content_type": "text/csv; charset=utf-8",
         "version_metadata": null,
@@ -207,7 +207,7 @@
         "source_role": "internal-policy",
         "authority": "internal-control",
         "locator": "https://app.notion.com/p/3ba0b700541e81f09998d48f3b1c2856",
-        "retrieved_at": "2026-09-04T23:26:39Z",
+        "retrieved_at": "2026-09-04T23:52:09Z",
         "retrieval_status": "unavailable",
         "content_type": "text/html; charset=utf-8",
         "version_metadata": null,

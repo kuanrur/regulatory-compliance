@@ -110,8 +110,11 @@ test, so stage 02's `retrieved` was wrong and should have been `invalid`. The ru
 02, rewrites it, and reruns forward, recording the rewind as a `decisions` entry in the rewritten
 stage.
 
-The bound of one rewind per run exists so the pipeline cannot loop. A second trigger of the same kind
-means the correction did not hold, which is a failed run and not something to retry.
+The bound of one rewind per run exists so the pipeline cannot loop, and it is expressed as a bounded
+loop in the script rather than as a flag, so the rule is visible where it is enforced. A second
+trigger of the same kind means the correction did not hold. The binding text stays recorded as
+invalid and the run is blocked under rule 1, which is the right outcome: without the Article 50 text
+there is nothing for a formal conclusion to rest on.
 
 ## Why layer 3 sits above layer 4
 

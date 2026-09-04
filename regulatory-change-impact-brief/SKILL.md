@@ -2,6 +2,7 @@
 name: regulatory-change-impact-brief
 description: Run the Article 50 regulatory change impact review over the disclosed sources, writing seven audit snapshots and a draft impact register, compliance brief and action calendar for human approval.
 allowed-tools: Bash, Read
+compatibility: Requires network access, specifically outbound HTTPS to the seven disclosed sources listed in scripts/sources.json, three European Commission pages, three Google Sheets exports and one Notion page. No other destination is contacted, no credentials are sent, and every request is a read-only GET.
 ---
 
 # Regulatory change impact brief
@@ -123,7 +124,8 @@ available to it. Per stage field detail, the id grammar and the artifact layouts
    item with neither is incomplete, not merely open.
 6. **A correctable validation failure returns to the earliest affected stage** and reruns every
    stage downstream of it, so the lineage hashes stay intact. One rewind per run, recorded as a
-   `decisions` entry in the rewritten stage. A second trigger of the same kind is a failed run.
+   `decisions` entry in the rewritten stage. A second trigger of the same kind leaves the binding
+   text recorded as invalid, which blocks the run under rule 1.
 
 ### State precedence
 
@@ -213,6 +215,12 @@ seconds apart while its normalised text hash does not.
 
 ## Gotchas
 
+- **`allowed-tools` governs the agent, not the script it runs.** A security scanner reports that
+  this skill declares only `Bash` and `Read` while the bundled script writes files. Wrong default:
+  add `Write` to settle the finding. Correct: leave the declaration alone. It exists so the agent
+  cannot hand author the register, the brief or the calendar, and the script writing under
+  `deliverables/` is the design. Granting `Write` would remove the one guarantee that every artifact
+  came out of the command.
 - **A run in a clean clone leaves the seven snapshots modified and the three artifacts unchanged.**
   Wrong default: read that as broken determinism and go hunting for the bug. Correct: this is the
   intended shape. `created_at` and `retrieved_at` record the real moment each stage was written, so

@@ -4,12 +4,12 @@
   "run_id": "RUN-20260904T120000Z",
   "stage": "publication-validation",
   "sequence": 7,
-  "created_at": "2026-09-04T23:26:39Z",
+  "created_at": "2026-09-04T23:52:09Z",
   "status": "complete",
   "predecessor": {
     "snapshot_id": "RUN-20260904T120000Z-06-actions-and-approvals",
     "path": "deliverables/snapshots/06-actions-and-approvals.json",
-    "sha256": "sha256:0c04534bb28302bbf375d50e45baa1d8e6993eb32961ce6091d8233b207d7f4e"
+    "sha256": "sha256:d78a0f09fcb75c8fcaa473f72939c8528cbca22cf8277a5ab4a3edbafea1cd21"
   },
   "consumed_record_ids": [
     "IMP-AI-001-50-1",

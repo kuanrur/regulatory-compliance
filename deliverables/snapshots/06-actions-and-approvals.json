@@ -4,12 +4,12 @@
   "run_id": "RUN-20260904T120000Z",
   "stage": "actions-and-approvals",
   "sequence": 6,
-  "created_at": "2026-09-04T23:26:39Z",
+  "created_at": "2026-09-04T23:52:09Z",
   "status": "partial",
   "predecessor": {
     "snapshot_id": "RUN-20260904T120000Z-05-impact-analysis",
     "path": "deliverables/snapshots/05-impact-analysis.json",
-    "sha256": "sha256:d13ee7d2acd232d8c0dbbda8831d77bfb47a26f5a48d59bde440a0d0145e02c0"
+    "sha256": "sha256:901296f64a345de4df65622643e3b1a1a5b9d8f433356f1ab35cb703e628734d"
   },
   "consumed_record_ids": [
     "UNR-provider-role",

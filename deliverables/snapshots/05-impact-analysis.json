@@ -4,12 +4,12 @@
   "run_id": "RUN-20260904T120000Z",
   "stage": "impact-analysis",
   "sequence": 5,
-  "created_at": "2026-09-04T23:26:39Z",
+  "created_at": "2026-09-04T23:52:09Z",
   "status": "partial",
   "predecessor": {
     "snapshot_id": "RUN-20260904T120000Z-04-evidence-reconciliation",
     "path": "deliverables/snapshots/04-evidence-reconciliation.json",
-    "sha256": "sha256:6221c61601e083893dd9696da3ad98ed026c4259a9c37059cda657e1e1befa6d"
+    "sha256": "sha256:42dc5d2ace39c99ca53a3a715e03c29c48a9f460683f5a1105207f514b392575"
   },
   "consumed_record_ids": [
     "FACT-AI-001-output_type",

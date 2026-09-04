@@ -47,6 +47,7 @@ SCOPE_RULE = "every AI system recorded in the AI-system register as at as_of"
 SCOPE_RECORD_ID = "SCOPE-FRAME"
 OBLIGATION_EFFECTIVE = "2026-08-02"
 
+MAX_RUN_ATTEMPTS = 2  # one pass, plus at most one rewind. Decision rule 6.
 FETCH_ATTEMPTS = 3
 FETCH_BACKOFF_SECONDS = 2
 FETCH_TIMEOUT_SECONDS = 60
@@ -1318,9 +1319,9 @@ def main() -> int:
 
     trail = Trail(run_id)
     force_invalid: set[str] = set()
-    rewind_used = False
 
-    while True:
+    for attempt in range(MAX_RUN_ATTEMPTS):
+        rewind_available = attempt + 1 < MAX_RUN_ATTEMPTS
         trail.reset()
         produced_ids: set[str] = set()
 
@@ -1374,8 +1375,7 @@ def main() -> int:
         paragraphs = payloads["ART50"]["payload"].get("paragraphs", {})
         recheck_failed = binding_available and not all(
             len(paragraphs.get(n, "")) > 200 for n in (1, 2, 3, 4))
-        if recheck_failed and not rewind_used:
-            rewind_used = True
+        if recheck_failed and rewind_available:
             force_invalid = {"ART50"}
             continue
         produced_ids.update(produced03)
