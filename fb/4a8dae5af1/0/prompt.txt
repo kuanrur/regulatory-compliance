@@ -1,0 +1,5 @@
+再跑一次 clean checkout 驗證
+
+---
+
+那筆逾期升級的行為記進 SKILL.md gotchas
