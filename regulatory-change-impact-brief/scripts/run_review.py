@@ -637,9 +637,10 @@ def build_stage_04(payloads: dict, as_of_date: str,
         status=row.get("status", ""), evidence_state=row.get("evidence_state", ""),
     ) for row in incident_rows]
 
+    register_available = payloads["REGISTER"]["status"] == "retrieved"
     register_status = {row["system_id"]: row.get("evidence_status", "") for row in register_rows}
     conflicts = []
-    for row in incident_rows:
+    for row in incident_rows if register_available else []:
         system = row["system_id"]
         if row.get("evidence_state") == "conflicting" and register_status.get(system) != "conflicting":
             conflicts.append(rec(
@@ -652,13 +653,14 @@ def build_stage_04(payloads: dict, as_of_date: str,
                  f"INC-{row['record_id']}"],
                 owner=row.get("owner", ""),
             ))
-    conflicts.append(rec(
-        "CFL-ALL-deployment-dates",
-        "Testimony at E16 placed deployment dates in the AI-system register. The register has no "
-        "such column. He retreated from the claim at E17. Recorded as testimony against record.",
-        ["SRC-REGISTER", "E16", "E17"],
-        owner="The system owners",
-    ))
+    if register_available:
+        conflicts.append(rec(
+            "CFL-ALL-deployment-dates",
+            "Testimony at E16 placed deployment dates in the AI-system register. The register has no "
+            "such column. He retreated from the claim at E17. Recorded as testimony against record.",
+            ["SRC-REGISTER", "E16", "E17"],
+            owner="The system owners",
+        ))
     conflicts.append(rec(
         "CFL-ALL-owner-names",
         "Testimony at E26 placed named individual owners in the incident register. Its owner column "
@@ -680,7 +682,7 @@ def build_stage_04(payloads: dict, as_of_date: str,
 
     register_audiences = sorted({row.get("exposed_group", "") for row in register_rows} - {""})
     declared = {a.replace("the ", "") for a in AUDIENCES}
-    if set(register_audiences) != declared:
+    if register_available and set(register_audiences) != declared:
         conflicts.append(rec(
             "CFL-ALL-audiences",
             f"Stage 01 declared audiences {sorted(declared)} while the register records "
@@ -721,7 +723,8 @@ def build_stage_04(payloads: dict, as_of_date: str,
     consumed = ["SRC-REGISTER", "SRC-INCIDENT", "SRC-CALENDAR", "SRC-POLICY", "SRC-TRANSCRIPT"]
     context = {"register_rows": register_rows, "incident_rows": incident_rows,
                "calendar_rows": calendar_rows, "conflicts": conflicts,
-               "incident_evidence": incident_evidence}
+               "incident_evidence": incident_evidence,
+               "register_available": register_available}
     return state, consumed, produced, context
 
 
@@ -810,6 +813,16 @@ def build_stage_05(limbs: list[dict], context: dict, binding_available: bool) ->
             owner="The system owners",
             required_next_evidence="Placed on market or deployment dates per system."),
     ]
+    if not context["register_available"]:
+        unresolved_items.insert(0, rec(
+            "UNR-system-register",
+            "The AI-system register could not be retrieved, so no system can be enumerated and no "
+            "obligation limb can be paired with one. The set of conclusions a bounded partial would "
+            "withhold therefore cannot be computed, which is decision rule 1's switch condition, "
+            "and the run is blocked rather than delivered as a partial.",
+            ["SRC-REGISTER"],
+            owner="The system owners",
+            required_next_evidence="A readable copy of the AI-system register."))
     consumed.extend(["BLK-provider-role", "GAP-ALL-policy-controls", "GAP-ALL-placed-on-market"])
     state = {
         "impacts": impacts,
@@ -1316,12 +1329,20 @@ def run_checks(schema: dict, trail: Trail, produced_ids: set[str], exchanges: se
 
     pairs = [(r["system_id"], r["obligation_limb"])
              for r in stage05["impacts"] + stage05["unaffected_items"]]
-    expected = len({row["system_id"] for row in context["register_rows"]}) * len(limbs)
-    checks.append(check("CHK-05",
-                        f"impacts plus unaffected_items total {expected}, and each system and limb "
-                        f"pair appears exactly once.",
-                        len(pairs) == expected and len(set(pairs)) == expected,
-                        f"{len(pairs)} pairs, {len(set(pairs))} distinct"))
+    if context["register_available"]:
+        expected = len({row["system_id"] for row in context["register_rows"]}) * len(limbs)
+        passed = expected > 0 and len(pairs) == expected and len(set(pairs)) == expected
+        summary = (f"The AI-system register was retrieved, so every system it lists is paired with "
+                   f"every limb: impacts plus unaffected_items total {expected} and each pair "
+                   f"appears exactly once.")
+        detail = f"{len(pairs)} pairs, {len(set(pairs))} distinct, expected {expected}"
+    else:
+        passed = not pairs
+        summary = ("The AI-system register could not be retrieved, so there is no system to pair "
+                   "with a limb and the analysis is empty by necessity rather than by accident. "
+                   "The run is blocked and the empty set is recorded as such.")
+        detail = f"{len(pairs)} pairs, expected none"
+    checks.append(check("CHK-05", summary, passed, detail))
 
     dangling = []
     for snapshot in trail.written:
@@ -1501,7 +1522,13 @@ def main() -> int:
         state04, consumed04, produced04, context = build_stage_04(payloads, as_of_date,
                                                                     text_divergences)
         produced_ids.update(produced04)
-        trail.write(4, "evidence-reconciliation", "04-evidence-reconciliation.json", "partial",
+        register_available = context["register_available"]
+        # Not a second binding source. Without the register no system can be enumerated, so the
+        # set of conclusions to withhold cannot be computed, the bounded partial is unavailable,
+        # and decision rule 1's switch condition puts the run into a whole run block.
+        analysis_possible = binding_available and register_available
+        trail.write(4, "evidence-reconciliation", "04-evidence-reconciliation.json",
+                    "partial" if register_available else "blocked",
                     state04, consumed04, produced04,
                     [decision("DEC-conflict-policy",
                               "Source conflicts are recorded and never adjudicated. The register's "
@@ -1521,8 +1548,30 @@ def main() -> int:
         produced_ids.update(produced05)
         open_pairs = [r for r in state05["impacts"]
                       if r.get("state") in {"unresolved", "conflicting"}]
+        decisions05 = []
+        if not register_available:
+            decisions05.append(decision(
+                "DEC-unbounded-so-blocked",
+                "This run is a whole run block rather than a bounded partial, because the switch "
+                "condition in decision rule 1 was met.",
+                ["SRC-REGISTER", "UNR-system-register"],
+                "The standing policy for an unavailable source other than the binding text is a "
+                "bounded partial: withhold and mark the conclusions that source touches, and "
+                "deliver the rest. That policy carries one switch condition, that a whole run block "
+                "applies where the contaminated set cannot be determined, because a partial whose "
+                "boundary cannot be computed is not bounded. This run met the switch condition. "
+                "Without the AI-system register no system can be enumerated, so the set of "
+                "conclusions to withhold cannot be computed at all and there is nothing left to "
+                "deliver around it. The block follows from the switch condition, not from treating "
+                "the register as a second binding source.",
+                ["A reader who sees a source that is not binding block a run may read the two tier "
+                 "policy as contradicting itself, which is why the reasoning is recorded here "
+                 "rather than left to be inferred.",
+                 "The incident register and the compliance calendar were both readable on this run "
+                 "and nothing is delivered from them. Their contents are still recorded in stage "
+                 "04, so no evidence is lost, only conclusions."]))
         trail.write(5, "impact-analysis", "05-impact-analysis.json",
-                    "blocked" if not binding_available else ("partial" if open_pairs else "complete"),
+                    "blocked" if not analysis_possible else ("partial" if open_pairs else "complete"),
                     state05, consumed05, produced05,
                     [decision("DEC-provider-role-withheld",
                               "Provider limb conclusions are withheld for all eight systems.",
@@ -1537,12 +1586,12 @@ def main() -> int:
                      decision("DEC-state-precedence",
                               "A recorded conflict is assigned before the provider limb "
                               "withholding.",
-                              ["CFL-ALL-deployment-dates"],
+                              ["BLK-provider-role"],
                               "Reporting a corroborated evidence conflict as merely unresolved "
                               "would leave the most concrete evidence problem visible only in "
                               "stage 04, where neither Legal nor Operations reads.",
                               ["A conflicting record still carries the role blocker, so nothing "
-                               "about the role question is lost."])],
+                               "about the role question is lost."])] + decisions05,
                     state05["unresolved_items"])
 
         state06, consumed06, produced06, action_for_record = build_stage_06(state05, context, as_of_date)
@@ -1575,14 +1624,14 @@ def main() -> int:
                             context, register_bytes, b"", ics_bytes, as_of, as_of_date)
         provisional_failed = [c["id"] for c in checks
                               if not c["passed"] and c["id"] not in {"CHK-12", "CHK-15"}]
-        publication_status = ("blocked" if not binding_available
+        publication_status = ("blocked" if not analysis_possible
                               else ("failed" if provisional_failed else "validated"))
         brief_bytes = write_brief(run_id, as_of, as_of_date, publication_status, source_records,
                                   state03, state04, state05, state06, index)
         checks = run_checks(schema, trail, produced_ids, exchanges, state05, state06, limbs,
                             context, register_bytes, brief_bytes, ics_bytes, as_of, as_of_date)
         failed = [c["id"] for c in checks if not c["passed"]]
-        publication_status = ("blocked" if not binding_available
+        publication_status = ("blocked" if not analysis_possible
                               else ("failed" if failed else "validated"))
 
         artifacts = [

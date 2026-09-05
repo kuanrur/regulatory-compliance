@@ -4,12 +4,12 @@
   "run_id": "RUN-20260904T120000Z",
   "stage": "publication-validation",
   "sequence": 7,
-  "created_at": "2026-09-05T00:24:08Z",
+  "created_at": "2026-09-05T00:33:03Z",
   "status": "complete",
   "predecessor": {
     "snapshot_id": "RUN-20260904T120000Z-06-actions-and-approvals",
     "path": "deliverables/snapshots/06-actions-and-approvals.json",
-    "sha256": "sha256:9bdcb504d514bb8d9abf2c0017e535a7257eebc5fd3d0bdfdcc9cd60b3463e64"
+    "sha256": "sha256:eeab0f36ada250307cd07e732be93fd462217081a8380d7840eacc64e445b834"
   },
   "consumed_record_ids": [
     "IMP-AI-001-50-1",
@@ -102,10 +102,10 @@
       },
       {
         "id": "CHK-05",
-        "summary": "impacts plus unaffected_items total 40, and each system and limb pair appears exactly once.",
+        "summary": "The AI-system register was retrieved, so every system it lists is paired with every limb: impacts plus unaffected_items total 40 and each pair appears exactly once.",
         "evidence_ids": [],
         "passed": true,
-        "detail": "40 pairs, 40 distinct"
+        "detail": "40 pairs, 40 distinct, expected 40"
       },
       {
         "id": "CHK-06",

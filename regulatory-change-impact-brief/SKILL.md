@@ -110,7 +110,9 @@ available to it. Per stage field detail, the id grammar and the artifact layouts
    conclusions are blocked and the draft goes out marked unresolved. For any other unavailable
    source, a bounded partial: withhold and mark only the conclusions that source touches and
    deliver the rest. A whole run block applies only when the contaminated set cannot be determined,
-   because then it is not bounded.
+   because then it is not bounded. Losing the AI-system register meets that switch condition rather
+   than being an exception to the rule: with no register no system can be enumerated, so the set of
+   conclusions to withhold cannot be computed and no partial can be drawn around it.
 2. **The partial is bounded by obligation limb, not by system count.** Article 50(1) and 50(2) bind
    providers; 50(3) and 50(4) bind deployers. Deployer limb conclusions are delivered. Provider limb
    conclusions are withheld for every system pending a formal role determination.

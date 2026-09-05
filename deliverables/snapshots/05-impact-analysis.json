@@ -4,12 +4,12 @@
   "run_id": "RUN-20260904T120000Z",
   "stage": "impact-analysis",
   "sequence": 5,
-  "created_at": "2026-09-05T00:24:08Z",
+  "created_at": "2026-09-05T00:33:03Z",
   "status": "partial",
   "predecessor": {
     "snapshot_id": "RUN-20260904T120000Z-04-evidence-reconciliation",
     "path": "deliverables/snapshots/04-evidence-reconciliation.json",
-    "sha256": "sha256:5cfd8b149d930fb9e004fe852db72f37009b9fbb6e1f079e2a68ecdbf27f43c3"
+    "sha256": "sha256:8a6a25d404b974bc3db8577e50dce5d24e461294171422aa799f1013ebe834ec"
   },
   "consumed_record_ids": [
     "FACT-AI-001-output_type",
@@ -960,7 +960,7 @@
       "id": "DEC-state-precedence",
       "summary": "A recorded conflict is assigned before the provider limb withholding.",
       "evidence_ids": [
-        "CFL-ALL-deployment-dates"
+        "BLK-provider-role"
       ],
       "rationale": "Reporting a corroborated evidence conflict as merely unresolved would leave the most concrete evidence problem visible only in stage 04, where neither Legal nor Operations reads.",
       "tradeoffs": [

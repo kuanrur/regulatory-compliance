@@ -185,7 +185,12 @@ Each is one record in stage 07 `validation_checks`. None cites an exchange.
 2. Every `predecessor.sha256` from stage 02 onward matches the file on disk.
 3. All seven snapshots carry the same `run_id`.
 4. Sequences 1 to 7 each appear exactly once.
-5. `impacts` plus `unaffected_items` total forty, and each system and limb pair appears exactly once.
+5. Every system the AI-system register lists is paired with every limb. When the register was
+    retrieved, `impacts` plus `unaffected_items` total the number of systems times the number of
+    limbs, forty on the register as it stands, and each pair appears exactly once. When the register
+    could not be retrieved, the check asserts the opposite: there must be no pairs at all, because
+    the run is blocked and an empty analysis is the only honest one. Neither branch compares a count
+    with itself.
 6. Every `evidence_ids` value resolves to a record produced upstream or to a real exchange id.
 7. No entry in `impacts` or `unaffected_items` cites an exchange as the basis for a limb
    determination.

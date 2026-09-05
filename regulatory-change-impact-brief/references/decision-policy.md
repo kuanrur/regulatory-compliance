@@ -23,6 +23,22 @@ touches and delivers the rest. A whole run block for a non binding source would 
 correction, and a partial when the contaminated set is unknowable would be a false claim of
 containment.
 
+Two sources block the run, and they block it for different reasons. The Article 50 text blocks it
+directly, by the first limb of the rule: without the binding text nothing formal can rest on
+anything.
+
+The AI-system register blocks it through the **switch condition**, and the distinction matters
+because the register is not a binding source and the rule's default for a non binding source is a
+bounded partial. The default is attempted first and fails: a bounded partial has to name the
+conclusions it withholds, and with no register no system can be enumerated, so that set cannot be
+computed at all. A partial whose boundary cannot be computed is not bounded, which is exactly the
+condition the rule names, so the run becomes a whole run block. Read without this paragraph the
+outcome looks like the two tier policy contradicting itself, which is why the run writes the
+reasoning into stage 05 as `DEC-unbounded-so-blocked` rather than leaving a reader to infer it.
+
+Both sources record what their loss withholds in `scripts/sources.json` under
+`withholds_on_failure`.
+
 The live instance is the internal AI-use policy. He confirmed at E19 that where the document owner
 cannot supply the material, "the affected review items have to stay marked as pending or blocked
 until we get proper access". It withholds stage 04 `policy_controls` in full. Its absence is not

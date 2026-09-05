@@ -4,12 +4,12 @@
   "run_id": "RUN-20260904T120000Z",
   "stage": "authority-and-timing",
   "sequence": 3,
-  "created_at": "2026-09-05T00:24:08Z",
+  "created_at": "2026-09-05T00:33:03Z",
   "status": "complete",
   "predecessor": {
     "snapshot_id": "RUN-20260904T120000Z-02-source-capture",
     "path": "deliverables/snapshots/02-source-capture.json",
-    "sha256": "sha256:b6f2ad9efa26667c01d6b75b47479cc2881ddcdc0231369c58226f5fe81a0399"
+    "sha256": "sha256:68bd1572f28a0832e8a37938ccd8f5b3017a9a6c6e8fb120295eb3e5e2499d9e"
   },
   "consumed_record_ids": [
     "SRC-ART50",
