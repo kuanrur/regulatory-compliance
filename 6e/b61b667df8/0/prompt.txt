@@ -1,0 +1,9 @@
+再跑一次 clean checkout 驗證
+
+---
+
+projectB結束？最後確認一次，有沒有漏做的，做錯的，沒記錄到的，或是可以加分的？
+
+---
+
+三件都做，順序如下，一次做完再回報，中間不用問我。一、修 binding_rules 引綁定副本那件事。把抓回來的段落文字存進每一筆 binding rule，跟 article-50-limbs.json 的綁定副本比對，不一致就依規則 4 開一筆 conflict，記錄不裁決。這條是 README:78 明文，不是加分。二、同一輪一起做第十五條 validation check：stage 07 把三個產物各自重新解析一次，CSV、ICS、brief 都要回讀，不要只有 CSV。stage 07 的職責就是驗證這包東西，自己漏讀兩個產物是它自己的洞。三、一和二做完，重跑、驗證、commit、push，然後再做回捲的證明：在一份丟棄用的clone 裡，讓 ART50 抓得到但過不了段落解析，確認它回捲、寫出 DEC-rewind、然後依規則 1 blocked。那份 clone 不要動到 repo 裡已提交的產物。回捲那次如果壞在意料外的地方，當場打 command-failed，不要自己修完才講。
