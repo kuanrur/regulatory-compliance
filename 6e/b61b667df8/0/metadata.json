@@ -179,6 +179,37 @@
         "label": "Skill: grilling",
         "default_collapsed": true
       }
+    },
+    {
+      "id": "claude-skill-toolu_01XgsdXq3RRd8YWTDVumx3up",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "command-failed"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "783d0d73848b",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 1360,
+        "end": 1361,
+        "entry_ids": [
+          "9d3ca355-0071-42e0-a693-951889e6770a"
+        ],
+        "tool_use_id": "toolu_01XgsdXq3RRd8YWTDVumx3up"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01XgsdXq3RRd8YWTDVumx3up"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: command-failed",
+        "default_collapsed": true
+      }
     }
   ],
   "session_metrics": {
