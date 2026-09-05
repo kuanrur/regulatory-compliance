@@ -725,6 +725,22 @@ def build_stage_04(payloads: dict, as_of_date: str,
     return state, consumed, produced, context
 
 
+NEXT_EVIDENCE_BY_LAYER = {
+    0: ("A retrievable copy of the binding Article 50 text. While it cannot be read, no limb can be "
+        "concluded on and nothing else closes this item."),
+    3: "Complete and uncontested evidence of the disclosure practice for this system.",
+    4: "A formal provider or deployer role determination from Legal and the system owners.",
+    5: "Complete and uncontested evidence of the disclosure practice for this system.",
+}
+
+
+def next_evidence(layer: int, limb: dict) -> str | None:
+    """Layer 2 is an applicability question, so its evidence is named by the limb table."""
+    if layer == 2:
+        return limb["required_next_evidence"]
+    return NEXT_EVIDENCE_BY_LAYER.get(layer)
+
+
 def build_stage_05(limbs: list[dict], context: dict, binding_available: bool) -> tuple[dict, list[str], list[str]]:
     impacts, unaffected, pair_conflicts = [], [], []
     consumed: list[str] = []
@@ -757,11 +773,7 @@ def build_stage_05(limbs: list[dict], context: dict, binding_available: bool) ->
                 applicability=verdict["applicability"], reason=verdict["reason"],
                 authority_blocker=blocker, owner=row.get("owner", ""),
                 precedence_layer=verdict["layer"],
-                required_next_evidence=limb["required_next_evidence"] if verdict["layer"] == 2 else (
-                    "A formal provider or deployer role determination from Legal and the system "
-                    "owners." if verdict["layer"] == 4 else (
-                        "Complete and uncontested evidence of the disclosure practice for this "
-                        "system." if verdict["layer"] in (3, 5) else None)),
+                required_next_evidence=next_evidence(verdict["layer"], limb),
             )
             if verdict["array"] == "impacts":
                 record["state"] = verdict["state"]

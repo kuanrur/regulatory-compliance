@@ -90,7 +90,12 @@ controls, the absent placed on market dates, and the systems whose `evidence_upd
 ### 05 impact-analysis
 
 `impacts` and `unaffected_items` together hold all forty system and limb pairs, one record each,
-assigned by the state precedence in the skill body. `conflicts` carries the pairs that reached
+assigned by the state precedence in the skill body. Every record in `impacts` carries
+`required_next_evidence`, named by the precedence layer it reached: layer 2 takes it from the limb
+table, layer 4 is the role determination, layers 3 and 5 are complete and uncontested disclosure
+evidence for the system, and layer 0, reached only when the binding text could not be read, is a
+retrievable copy of the Article 50 text itself. Entries in `unaffected_items` carry none, because an
+obligation that does not apply has nothing to close. `conflicts` carries the pairs that reached
 precedence layer 3. `unresolved_items` carries every open question that is not itself a limb pair,
 each with an owner and the evidence that would close it.
 
