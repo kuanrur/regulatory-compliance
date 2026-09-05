@@ -218,6 +218,14 @@ seconds apart while its normalised text hash does not.
 
 ## Gotchas
 
+- **The escalation set moves when the calendar date moves.** The same command run on two different
+  days can produce different `impact-register.csv` and `compliance-brief.md` bytes. Wrong default:
+  read that as broken reproducibility and go looking for non determinism. Correct: overdue is a
+  comparison of a compliance calendar action's `due_date` against the run's `as_of` date, so an
+  action due today is not overdue and the same action is overdue tomorrow. ACT-001, due 2026-09-04,
+  first appeared as `ESC-ACT-001-overdue` on a run anchored to 2026-09-05. The reproducibility claim
+  is scoped to a fixed `--as-of` for exactly this reason, and a date anchored review that did not
+  move here would be the defect.
 - **`allowed-tools` governs the agent, not the script it runs.** A security scanner reports that
   this skill declares only `Bash` and `Read` while the bundled script writes files. Wrong default:
   add `Write` to settle the finding. Correct: leave the declaration alone. It exists so the agent
