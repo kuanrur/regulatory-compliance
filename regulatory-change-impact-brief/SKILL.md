@@ -102,7 +102,7 @@ available to it. Per stage field detail, the id grammar and the artifact layouts
 | 04 evidence-reconciliation | Stages 02 and 03 | System facts from the register, policy controls, incident evidence, conflicts, evidence gaps |
 | 05 impact-analysis | Stages 03 and 04 | Every system and limb pair, eight systems by five limbs, split between `impacts` and `unaffected_items` so the two together account for all forty, plus conflicts and unresolved items |
 | 06 actions-and-approvals | Stage 05 | Proposed actions, approval requirements, escalations, each with an owner |
-| 07 publication-validation | Stages 05 and 06 | The three artifacts, their hashes, fourteen validation checks and the publication status |
+| 07 publication-validation | Stages 05 and 06 | The three artifacts, their hashes, fifteen validation checks and the publication status |
 
 ## Decision rules
 
@@ -193,8 +193,9 @@ A run is complete when all four hold:
 4. The register, brief and draft calendar agree with stages 06 and 07: same record ids, same states,
    same approval states, and the artifact hashes in stage 07 match the files on disk.
 
-The fourteen checks stage 07 records, including the check that the forty system and limb pairs are
-each accounted for exactly once, are listed in `references/stage-contract.md`.
+The fifteen checks stage 07 records, including the check that the forty system and limb pairs are
+each accounted for exactly once and the check that all three artifacts read back in their own
+format, are listed in `references/stage-contract.md`.
 
 Before pushing, run the command from a clean checkout and confirm all four.
 

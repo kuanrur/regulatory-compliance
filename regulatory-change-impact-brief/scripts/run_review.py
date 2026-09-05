@@ -481,18 +481,36 @@ def build_stage_03(payloads: dict, limbs: list[dict], as_of_date: str) -> tuple[
     paragraphs = art["payload"].get("paragraphs", {})
 
     binding_rules = []
+    divergences: list[dict] = []
     for limb in limbs:
-        text = paragraphs.get(limb["source_paragraph"], "")
+        fetched = paragraphs.get(limb["source_paragraph"], "")
+        bundled = limb["duty"]
+        # The bundled duty is the one sentence of the paragraph that states this limb, so the test
+        # is containment in the paragraph as retrieved, not equality with it.
+        matches = bool(fetched) and norm(bundled) in norm(fetched)
+        if fetched:
+            summary = (f"Article {limb['limb']} binds {limb['binding_party']}s. Paragraph "
+                       f"{limb['source_paragraph']} as retrieved on this run: {fetched}")
+        else:
+            summary = (f"Article {limb['limb']} binds {limb['binding_party']}s. Paragraph "
+                       f"{limb['source_paragraph']} could not be read on this run, so the bundled "
+                       f"duty text is recorded in its place: {bundled}")
         binding_rules.append(rec(
             f"RULE-{limb['limb']}",
-            f"Article {limb['limb']} binds {limb['binding_party']}s: {limb['duty']}",
+            summary,
             ["SRC-ART50"],
             binding_party=limb["binding_party"],
             source_paragraph=limb["source_paragraph"],
-            paragraph_text_retrieved=bool(text),
+            paragraph_text_retrieved=bool(fetched),
+            fetched_paragraph_text=fetched or None,
+            bundled_duty_text=bundled,
+            bundled_duty_found_in_fetched=matches,
             trigger=trigger_summary(limb["trigger"]),
             on_match=limb["on_match"],
         ))
+        if fetched and not matches:
+            divergences.append({"limb": limb["limb"], "paragraph": limb["source_paragraph"],
+                                "bundled": bundled, "fetched": fetched})
 
     timing_rules = []
     transitional_ids: list[str] = []
@@ -585,10 +603,11 @@ def build_stage_03(payloads: dict, limbs: list[dict], as_of_date: str) -> tuple[
              "carries applicable_now false and names both reasons."]))
     produced = [r["id"] for group in state.values() for r in group]
     consumed = ["SRC-ART50", "SRC-TIMELINE", "SRC-FAQ"]
-    return state, decisions, consumed, produced
+    return state, decisions, consumed, produced, divergences
 
 
-def build_stage_04(payloads: dict, as_of_date: str) -> tuple[dict, list[str], list[str], dict]:
+def build_stage_04(payloads: dict, as_of_date: str,
+                   text_divergences: list[dict]) -> tuple[dict, list[str], list[str], dict]:
     register_rows = payloads["REGISTER"]["payload"].get("rows", [])
     incident_rows = payloads["INCIDENT"]["payload"].get("rows", [])
     calendar_rows = payloads["CALENDAR"]["payload"].get("rows", [])
@@ -647,6 +666,18 @@ def build_stage_04(payloads: dict, as_of_date: str) -> tuple[dict, list[str], li
         ["SRC-INCIDENT", "E26", "E27"],
         owner="Operations",
     ))
+    for item in text_divergences:
+        conflicts.append(rec(
+            f"CFL-ART50-{item['limb']}-text-divergence",
+            f"The Article 50 duty text bundled in scripts/article-50-limbs.json for limb "
+            f"{item['limb']} does not appear in paragraph {item['paragraph']} as retrieved on this "
+            f"run. Both readings are recorded and neither is marked correct. The mapping table may "
+            f"be out of date, or the page may have been amended.",
+            ["SRC-ART50", f"RULE-{item['limb']}"],
+            owner="Legal",
+            bundled_text=item["bundled"],
+            fetched_text=item["fetched"]))
+
     register_audiences = sorted({row.get("exposed_group", "") for row in register_rows} - {""})
     declared = {a.replace("the ", "") for a in AUDIENCES}
     if set(register_audiences) != declared:
@@ -1171,6 +1202,70 @@ def write_calendar(run_id: str, as_of: str, as_of_date: str, stage06: dict) -> b
 # --------------------------------------------------------------------------- validation
 
 
+def unfold_ics(raw: bytes) -> list[str]:
+    """RFC 5545 folding: a line beginning with a space continues the line before it."""
+    out: list[str] = []
+    for line in raw.decode("utf-8").split("\r\n"):
+        if line.startswith(" ") and out:
+            out[-1] += line[1:]
+        elif line:
+            out.append(line)
+    return out
+
+
+def reparse_artifacts(register_bytes: bytes, brief_bytes: bytes,
+                      ics_bytes: bytes) -> list[str]:
+    """Read each artifact back as its own format. Returns a list of problems, empty when clean."""
+    problems: list[str] = []
+
+    try:
+        reader = csv.DictReader(io.StringIO(register_bytes.decode("utf-8")))
+        rows = list(reader)
+        if list(reader.fieldnames or []) != CSV_COLUMNS:
+            problems.append("register header does not match the documented seventeen columns")
+        if not rows:
+            problems.append("register has no rows")
+        blank = [r["record_id"] for r in rows if not r.get("record_id") or not r.get("state")]
+        if blank:
+            problems.append(f"register rows missing record_id or state: {blank[:3]}")
+    except Exception as exc:
+        problems.append(f"register does not parse as CSV: {exc}")
+
+    try:
+        lines = unfold_ics(ics_bytes)
+        if lines[0] != "BEGIN:VCALENDAR" or lines[-1] != "END:VCALENDAR":
+            problems.append("calendar is not wrapped in a VCALENDAR component")
+        depth, event, required = 0, {}, {"UID", "DTSTAMP", "DTSTART", "SUMMARY", "STATUS",
+                                        "DESCRIPTION", "CONTACT"}
+        for line in lines:
+            if line == "BEGIN:VEVENT":
+                depth, event = depth + 1, {}
+            elif line == "END:VEVENT":
+                depth -= 1
+                missing = required - set(event)
+                if missing:
+                    problems.append(f"VEVENT missing {sorted(missing)}")
+            elif depth:
+                event[line.split(":", 1)[0].split(";", 1)[0]] = True
+        if depth:
+            problems.append("unbalanced VEVENT components")
+        if not any(line == "BEGIN:VEVENT" for line in lines):
+            problems.append("calendar carries no events")
+    except Exception as exc:
+        problems.append(f"calendar does not parse as iCalendar text: {exc}")
+
+    try:
+        headings = re.findall(r"(?m)^## (.+)$", brief_bytes.decode("utf-8"))
+        expected = ["Scope", "Source status", "Supported impacts", "Unresolved items", "Actions",
+                    "Limitations", "Pending Legal and Operations decisions"]
+        if headings != expected:
+            problems.append(f"brief sections are {headings}, expected {expected}")
+    except Exception as exc:
+        problems.append(f"brief does not parse as Markdown: {exc}")
+
+    return problems
+
+
 def check(check_id: str, summary: str, passed: bool, detail: str = "") -> dict:
     return rec(check_id, summary, [], passed=passed, detail=detail)
 
@@ -1290,6 +1385,13 @@ def run_checks(schema: dict, trail: Trail, produced_ids: set[str], exchanges: se
                         "timestamps.",
                         stamps <= {as_of} and ics_stamps <= {compact},
                         f"{sorted(stamps)} {sorted(ics_stamps)}"))
+
+    problems = reparse_artifacts(register_bytes, brief_bytes, ics_bytes)
+    checks.append(check("CHK-15", "All three artifacts read back from disk in their own format. The "
+                        "register parses as CSV with the documented header, the calendar unfolds "
+                        "and every event carries its required properties, and the brief carries "
+                        "its seven sections in order.",
+                        not problems, "; ".join(problems[:3])))
     return checks
 
 
@@ -1371,7 +1473,8 @@ def main() -> int:
                          f"withholds {r['withholds_on_failure']}.", [r["id"]])
                      for r in not_retrieved])
 
-        state03, decisions03, consumed03, produced03 = build_stage_03(payloads, limbs, as_of_date)
+        state03, decisions03, consumed03, produced03, text_divergences = build_stage_03(
+            payloads, limbs, as_of_date)
         paragraphs = payloads["ART50"]["payload"].get("paragraphs", {})
         recheck_failed = binding_available and not all(
             len(paragraphs.get(n, "")) > 200 for n in (1, 2, 3, 4))
@@ -1383,7 +1486,8 @@ def main() -> int:
                     "complete" if binding_available else "blocked", state03, consumed03, produced03,
                     decisions03, [r for r in state03["authority_blockers"]])
 
-        state04, consumed04, produced04, context = build_stage_04(payloads, as_of_date)
+        state04, consumed04, produced04, context = build_stage_04(payloads, as_of_date,
+                                                                    text_divergences)
         produced_ids.update(produced04)
         trail.write(4, "evidence-reconciliation", "04-evidence-reconciliation.json", "partial",
                     state04, consumed04, produced04,
@@ -1457,7 +1561,8 @@ def main() -> int:
         exchanges = payloads["TRANSCRIPT"]["payload"].get("exchanges", set())
         checks = run_checks(schema, trail, produced_ids, exchanges, state05, state06, limbs,
                             context, register_bytes, b"", ics_bytes, as_of, as_of_date)
-        provisional_failed = [c["id"] for c in checks if not c["passed"] and c["id"] != "CHK-12"]
+        provisional_failed = [c["id"] for c in checks
+                              if not c["passed"] and c["id"] not in {"CHK-12", "CHK-15"}]
         publication_status = ("blocked" if not binding_available
                               else ("failed" if provisional_failed else "validated"))
         brief_bytes = write_brief(run_id, as_of, as_of_date, publication_status, source_records,

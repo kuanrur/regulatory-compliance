@@ -78,6 +78,10 @@ This rule decides which source can set an impact state to `conflicting`. The **r
 - AI-007: the register records `evidence_status: conflicting` and incident REC-008 records
   `evidence_state: conflicting`. Two sources agree that the evidence is in conflict, so nothing is
   being adjudicated by saying so. The impact state is `conflicting`.
+- The Article 50 text: the duty sentence bundled in `scripts/article-50-limbs.json` is checked on
+  every run against the paragraph actually retrieved. If the bundled sentence no longer appears in
+  the retrieved paragraph, that is recorded as a conflict and neither is corrected, because deciding
+  whether the mapping table is stale or the page was amended is a legal reading, not a parse.
 - AI-003: the register records `complete` while incident REC-003 records `conflicting`. The sources
   disagree with each other. Letting the incident override the register would be choosing a winner.
   So the disagreement itself becomes a stage 04 `conflicts` record, and the impact state is decided

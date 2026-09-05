@@ -4,12 +4,12 @@
   "run_id": "RUN-20260904T120000Z",
   "stage": "evidence-reconciliation",
   "sequence": 4,
-  "created_at": "2026-09-04T23:52:09Z",
+  "created_at": "2026-09-05T00:11:30Z",
   "status": "partial",
   "predecessor": {
     "snapshot_id": "RUN-20260904T120000Z-03-authority-and-timing",
     "path": "deliverables/snapshots/03-authority-and-timing.json",
-    "sha256": "sha256:1d9e551f41b6364871431a4909838b203ca2061c8d9c123312b8b704079eec06"
+    "sha256": "sha256:85be1b653ccf8142746041beea9e6cda3241d4a3bdd8105f92795ce70dd05161"
   },
   "consumed_record_ids": [
     "SRC-REGISTER",

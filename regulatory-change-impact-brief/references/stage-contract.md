@@ -66,8 +66,12 @@ entry and is null for the remote ones.
 
 ### 03 authority-and-timing
 
-`binding_rules`: one record per limb, carrying the paragraph text extracted from the Article 50
-page. `timing_rules`: the four timeline entries that bear on Article 50, two dated 2026-08-02 and two
+`binding_rules`: one record per limb, carrying `fetched_paragraph_text`, the paragraph as retrieved
+on this run, alongside `bundled_duty_text` from `scripts/article-50-limbs.json`. The record's
+summary quotes the retrieved text, not the bundled copy, because the retrieved text is the primary
+source. `bundled_duty_found_in_fetched` records whether the bundled sentence still appears verbatim
+in the retrieved paragraph; a false there produces a stage 04 conflict rather than a correction,
+because deciding which of the two is right is not ours. `timing_rules`: the four timeline entries that bear on Article 50, two dated 2026-08-02 and two
 dated 2026-12-02, each recording whether the timeline page marked it with a double asterisk as
 amended by the Digital Omnibus. `guidance_context`: FAQ material, every record labelled advisory.
 `authority_blockers`: one record per determination Legal must confirm, at minimum the provider role
@@ -107,7 +111,7 @@ action, because judging their action sufficient is Operations' decision.
 ### 07 publication-validation
 
 `artifacts`: three `artifactRecord` entries with real `sha256` values. `validation_checks`: the
-fourteen checks below. `publication_status`: `validated`, `blocked` or `failed`.
+fifteen checks below. `publication_status`: `validated`, `blocked` or `failed`.
 
 ## Reason templates
 
@@ -168,7 +172,7 @@ No `ORGANIZER` or `ATTENDEE`, because owners are departments and not mailboxes, 
 address would be fabricating a record. No `VALARM` and no `RRULE`, both of which read as writing the
 client's own calendar. Lines are folded at 75 octets.
 
-## The fourteen validation checks
+## The fifteen validation checks
 
 Each is one record in stage 07 `validation_checks`. None cites an exchange.
 
@@ -188,3 +192,7 @@ Each is one record in stage 07 `validation_checks`. None cites an exchange.
 12. Every artifact `sha256` in stage 07 matches the file on disk.
 13. Every proposed action in stage 06 appears as exactly one `VEVENT`.
 14. Every timestamp displayed in the three artifacts equals `as_of`.
+15. All three artifacts read back from disk in their own format: the register parses as CSV with the
+    documented header and no row missing `record_id` or `state`, the calendar unfolds per RFC 5545
+    with balanced components and every event carrying `UID`, `DTSTAMP`, `DTSTART`, `SUMMARY`,
+    `STATUS`, `DESCRIPTION` and `CONTACT`, and the brief carries its seven sections in order.
