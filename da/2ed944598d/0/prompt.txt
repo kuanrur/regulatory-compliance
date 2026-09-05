@@ -1,0 +1,1 @@
+修。layer 0 要填 required_next_evidence，內容就是取得 binding 的 Article 50條文，那本來就是唯一能關掉這些項目的證據。owner 沒問題，本來就有

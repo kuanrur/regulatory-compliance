@@ -1,0 +1,34 @@
+{
+  "cli_version": "0.10.2",
+  "checkpoint_id": "da2ed944598d",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "deliverables/snapshots/01-scope.json",
+    "deliverables/snapshots/02-source-capture.json",
+    "deliverables/snapshots/03-authority-and-timing.json",
+    "deliverables/snapshots/04-evidence-reconciliation.json",
+    "deliverables/snapshots/05-impact-analysis.json",
+    "deliverables/snapshots/06-actions-and-approvals.json",
+    "deliverables/snapshots/07-publication-validation.json",
+    "regulatory-change-impact-brief/references/stage-contract.md",
+    "regulatory-change-impact-brief/scripts/run_review.py"
+  ],
+  "sessions": [
+    {
+      "metadata": "/da/2ed944598d/0/metadata.json",
+      "transcript": "/da/2ed944598d/0/full.jsonl",
+      "compact_transcript": "/da/2ed944598d/0/transcript.jsonl",
+      "content_hash": "/da/2ed944598d/0/content_hash.txt",
+      "prompt": "/da/2ed944598d/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 2,
+    "cache_creation_tokens": 95,
+    "cache_read_tokens": 452619,
+    "output_tokens": 2385,
+    "api_call_count": 1
+  }
+}
